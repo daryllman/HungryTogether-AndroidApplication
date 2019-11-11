@@ -17,18 +17,22 @@ import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity {
 
     int RC_SIGN_IN = 0;
     SignInButton signInButton;
     GoogleSignInClient mGoogleSignInClient;
-    FirebaseAuth firebaseAuth;
+    private FirebaseAuth firebaseAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // Initialise Firebase Auth
+        firebaseAuth = FirebaseAuth.getInstance();
 
         //Refer signInButton variable to the sign_in_button
         signInButton = findViewById(R.id.sign_in_button);
@@ -37,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
         // The standard sign in button given by google doesn't have a proper set text attribute. need to create custom buttons.
         // This is a make-shift hacky way..
         TextView textView = (TextView) signInButton.getChildAt(0);
-        textView.setText("your_text_xyz");
+        textView.setText("Sign in with Google");
 
         // Configure sign-in to request the user's ID, email address, and basic
         // profile. ID and basic profile are included in DEFAULT_SIGN_IN.
@@ -95,6 +99,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override // At Start screen, must check if user has already signed in - affects which page UI is shown.
     protected void onStart() {
+
         // Check for existing Google Sign In account - if the user is already signed in
         // the GoogleSignInAccount will not be null if already signed in
         GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
@@ -102,5 +107,15 @@ public class MainActivity extends AppCompatActivity {
             startActivity(new Intent(MainActivity.this, AccountDetailsActivity.class)); // if already signed in, jump straight to next page.
         }
         super.onStart();
+
+        /*
+        super.onStart();
+        // Check if user is signed in (non-null) and update UI accordingly.
+        FirebaseUser currentUser = firebaseAuth.getCurrentUser();
+        if (currentUser != null) {
+            startActivity(new Intent(MainActivity.this, AccountDetailsActivity.class)); // if already signed in, jump straight to next page.
+        }
+        */
+
     }
 }
