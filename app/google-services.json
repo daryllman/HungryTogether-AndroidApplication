@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "175142536239",
+    "firebase_url": "https://hungrytogetherapp.firebaseio.com",
+    "project_id": "hungrytogetherapp",
+    "storage_bucket": "hungrytogetherapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:175142536239:android:953718da122bc1ac9772da",
+        "android_client_info": {
+          "package_name": "com.example.hungrytogetherandroidapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "175142536239-4f2da6km6us90km2487jkrukmqa3mbjs.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.hungrytogetherandroidapplication",
+            "certificate_hash": "7ab06410421d829515f3ebaf4a7e7f7efff9904a"
+          }
+        },
+        {
+          "client_id": "175142536239-r6j1kho1v0ctpu5r6spfoq5ti984e5j7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCY7AbWWjf_YW_69QIRNxKaFQ90HtWajcU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "175142536239-20ae2voavedfbsa24qi17mpd2le9m2t9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
