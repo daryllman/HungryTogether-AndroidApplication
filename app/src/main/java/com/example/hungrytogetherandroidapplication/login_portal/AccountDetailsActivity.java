@@ -1,4 +1,4 @@
-package com.example.hungrytogetherandroidapplication;
+package com.example.hungrytogetherandroidapplication.login_portal;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,6 +13,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.example.hungrytogetherandroidapplication.R;
+import com.example.hungrytogetherandroidapplication.new_order_portal.NewOrderActivity;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -24,6 +26,7 @@ public class AccountDetailsActivity extends AppCompatActivity {
 
     GoogleSignInClient mGoogleSignInClient;
     Button sign_out;
+    Button to_new_order_button;
     TextView nameField;
     TextView emailField;
     TextView idField;
@@ -40,6 +43,18 @@ public class AccountDetailsActivity extends AppCompatActivity {
         emailField = findViewById(R.id.email);
         idField = findViewById(R.id.id);
         photoField = findViewById(R.id.photo);
+        to_new_order_button = findViewById(R.id.to_new_order_button);
+
+
+        // TEMPORARY - Just to jump to New Order Page...
+        // TO BE REMOVED
+        to_new_order_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent newOrderIntent = new Intent(v.getContext(), NewOrderActivity.class);
+                startActivity(newOrderIntent);
+            }
+        });
 
 
         // Configure sign-in to request the user's ID, email address, and basic
