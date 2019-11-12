@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AccountDetailsActivity"
+    tools:context=".login_portal.AccountDetailsActivity"
     android:background="@drawable/teal_gradient_background">
 
 
@@ -47,6 +47,17 @@
             android:text="ID: ID HERE"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/to_new_order_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="New Order"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="20dp"
+            android:background="@color/colorPrimaryDark"
+            android:textColor="#fff"/>
 
     </LinearLayout>
 

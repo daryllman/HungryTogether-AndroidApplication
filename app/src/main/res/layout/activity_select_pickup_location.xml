@@ -1,6 +1,105 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".new_order_portal.select_pickup_location"
+    android:background="@drawable/teal_gradient_background">
 
-</LinearLayout>
+    <TextView
+        android:id="@+id/question"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="where do consumers find you?"
+        android:textColor="@color/white"
+        android:textSize="21dp"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.282" />
+
+    <ImageView
+        android:id="@+id/blk_57_image"
+        android:layout_width="78dp"
+        android:layout_height="90dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.194"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/question"
+        app:srcCompat="@drawable/loading" />
+
+    <ImageView
+        android:id="@+id/library_image"
+        android:layout_width="81dp"
+        android:layout_height="93dp"
+        android:layout_marginTop="70dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.195"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/blk_57_image"
+        app:srcCompat="@drawable/loading" />
+
+    <ImageView
+        android:id="@+id/mrt_image"
+        android:layout_width="81dp"
+        android:layout_height="93dp"
+        android:layout_marginTop="70dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.195"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/library_image"
+        app:srcCompat="@drawable/loading" />
+
+    <Button
+        android:id="@+id/blk_57"
+        style="@android:style/Widget.Holo.Button.Borderless"
+        android:background="#7A117070"
+        android:layout_width="163dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="20dp"
+        android:text="Blk 57 Pick Up Point"
+        android:textAllCaps="false"
+        android:textSize="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.673"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/question" />
+
+    <Button
+        android:id="@+id/library"
+        style="@android:style/Widget.Holo.Button.Borderless"
+        android:background="#7A117070"
+        android:layout_width="163dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="25dp"
+        android:text="Library Pick Up Point"
+        android:textAllCaps="false"
+        android:textSize="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.673"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/blk_57" />
+
+    <Button
+        android:id="@+id/mrt"
+        style="@android:style/Widget.Holo.Button.Borderless"
+        android:background="#7A117070"
+        android:layout_width="163dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="25dp"
+        android:text="Upper Changi MRT Exit B"
+        android:textAllCaps="false"
+        android:textSize="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.673"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/library" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
