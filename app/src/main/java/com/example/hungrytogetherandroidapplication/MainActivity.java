@@ -7,6 +7,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,7 +24,8 @@ import com.google.firebase.auth.FirebaseUser;
 public class MainActivity extends AppCompatActivity {
 
     int RC_SIGN_IN = 0;
-    SignInButton signInButton;
+    // SignInButton signInButton;
+    Button signInButton;
     GoogleSignInClient mGoogleSignInClient;
     private FirebaseAuth firebaseAuth;
 
@@ -38,11 +40,6 @@ public class MainActivity extends AppCompatActivity {
         //Refer signInButton variable to the sign_in_button
         signInButton = findViewById(R.id.sign_in_button);
 
-        // SIGN IN BUTTON TO BE REPLACED WITH CUSTOM ONE.
-        // The standard sign in button given by google doesn't have a proper set text attribute. need to create custom buttons.
-        // This is a make-shift hacky way..
-        TextView textView = (TextView) signInButton.getChildAt(0);
-        textView.setText("Sign in with Google");
 
         // Configure sign-in to request the user's ID, email address, and basic
         // profile. ID and basic profile are included in DEFAULT_SIGN_IN.
