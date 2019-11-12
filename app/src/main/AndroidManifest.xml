@@ -15,14 +15,20 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AccountDetailsActivity"></activity>
-        <activity android:name=".MainActivity">
+
+        <activity android:name=".login_portal.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".login_portal.AccountDetailsActivity"></activity>
+
+        <activity android:name=".new_order_portal.NewOrderActivity"></activity>
+        <activity android:name=".new_order_portal.select_restaurant"></activity>
+        <activity android:name=".new_order_portal.select_pickup_location"></activity>
+        <activity android:name=".new_order_portal.select_time_limit"></activity>
     </application>
 
 </manifest>
