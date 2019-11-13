@@ -21,6 +21,8 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class AccountDetailsActivity extends AppCompatActivity {
 
@@ -31,6 +33,7 @@ public class AccountDetailsActivity extends AppCompatActivity {
     TextView emailField;
     TextView idField;
     ImageView photoField;
+    TextView fbUid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +47,7 @@ public class AccountDetailsActivity extends AppCompatActivity {
         idField = findViewById(R.id.id);
         photoField = findViewById(R.id.photo);
         to_new_order_button = findViewById(R.id.to_new_order_button);
+        fbUid = findViewById(R.id.firebaseUid);
 
 
         // TEMPORARY - Just to jump to New Order Page...
@@ -77,11 +81,14 @@ public class AccountDetailsActivity extends AppCompatActivity {
             String personEmail = acct.getEmail();
             String personId = acct.getId();
             Uri personPhotoURL = acct.getPhotoUrl(); //URL that contains the photo file of account
+            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
             // Show the account details on this page~
             nameField.setText("Name: "+ personName);
             emailField.setText("Email: "+ personEmail);
             idField.setText("ID: "+ personId);
+            fbUid.setText("fb UID:" + user.getUid());
+
 
             // Glide is a module to load and cache images (read the build.gradle file for more info that i added)
             Glide
@@ -99,14 +106,25 @@ public class AccountDetailsActivity extends AppCompatActivity {
     }
 
     private void signOut() {
+
         mGoogleSignInClient.signOut() // use google sign in client to sign out officially...
                 .addOnCompleteListener(this, new OnCompleteListener<Void>() { // Adds a listener that is called when the Task completes. //The listener will be called on main application thread. If the Task is already complete, a call to the listener will be immediately scheduled. If multiple listeners are added, they will be called in the order in which they were added.
                     @Override
                     public void onComplete(@NonNull Task<Void> task) { // Execute this onComplete() func when listener (OnCompleteListener) listens that task is completed // Note: task is never null as the task here is a completed task
                         Toast.makeText(AccountDetailsActivity.this,"You have signed out successfully",Toast.LENGTH_SHORT).show();
+                        FirebaseAuth.getInstance().signOut();
                         startActivity(new Intent(AccountDetailsActivity.this, MainActivity.class)); // Jump to main login screen once sign out is successfull
                         finish();
                     }
                 });
+
+
+        /*
+        FirebaseAuth.getInstance().signOut();
+        Toast.makeText(AccountDetailsActivity.this,"You have signed out successfully",Toast.LENGTH_SHORT).show();
+        startActivity(new Intent(AccountDetailsActivity.this, MainActivity.class)); // Jump to main login screen once sign out is successfull
+        finish();
+         */
+
     }
 }
