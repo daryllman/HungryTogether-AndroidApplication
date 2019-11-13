@@ -48,6 +48,15 @@
             android:textColor="@color/colorPrimaryDark"
             android:textSize="18sp" />
 
+        <TextView
+            android:id="@+id/firebaseUid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="fbUid: UID HERE"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="18sp" />
+
         <Button
             android:id="@+id/to_new_order_button"
             android:layout_width="wrap_content"
