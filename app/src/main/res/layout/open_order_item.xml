@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/open_order_item_rounded_box_background"
+    >
+    <TextView
+        android:id="@+id/restaurant_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Restaurant name"
+        android:layout_marginTop="7dp"
+        android:layout_marginLeft="10dp"
+        android:textSize="20dp"
+        android:textStyle="bold"/>
+    <ImageView
+        android:id="@+id/restaurant_image"
+        android:layout_width="wrap_content"
+        android:layout_height="300dp"
+        android:src="@drawable/default_restaurant_background"
+        android:padding="0dp"
+        android:layout_below="@id/restaurant_name"/>
+
+    <TextView
+        android:id="@+id/food_captain_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Food Captain: "
+        android:padding="5dp"
+        android:layout_below="@id/restaurant_image"/>
+
+    <TextView
+        android:id="@+id/food_captain_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Food Captain Name"
+        android:padding="5dp"
+        android:layout_below="@id/restaurant_image"
+        android:layout_toRightOf="@+id/food_captain_label"/>
+
+    <TextView
+        android:id="@+id/pick_up_point_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pick-up point:"
+        android:padding="5dp"
+        android:layout_below="@id/food_captain_name"/>
+    <TextView
+        android:id="@+id/pick_up_point_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="pick up pt name"
+        android:padding="5dp"
+        android:layout_below="@id/food_captain_name"
+        android:layout_toRightOf="@id/pick_up_point_label"/>
+    <TextView
+        android:id="@+id/time_left_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Time left: "
+        android:padding="5dp"
+        android:layout_below="@id/pick_up_point_label"/>
+    <TextView
+        android:id="@+id/time_left_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="99mins"
+        android:padding="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_below="@id/pick_up_point_name"
+        android:layout_toRightOf="@id/pick_up_point_label"/>
+    <TextView
+        android:id="@+id/slots_left_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="3"
+        android:padding="5dp"
+        android:layout_below="@id/pick_up_point_label"
+        android:layout_alignParentRight="true"/>
+
+    <TextView
+        android:id="@+id/slots_left_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/pick_up_point_label"
+        android:layout_alignRight="@id/slots_left_name"
+        android:layout_marginTop="0dp"
+        android:padding="5dp"
+        android:text="Slots left:   " />
+
+
+</RelativeLayout>

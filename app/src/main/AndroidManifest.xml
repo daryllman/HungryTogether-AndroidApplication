@@ -25,6 +25,8 @@
         </activity>
         <activity android:name=".login_portal.AccountDetailsActivity"></activity>
 
+        <activity android:name=".open_orders_portal.OpenOrdersActivity"></activity>
+
         <activity android:name=".new_order_portal.NewOrderActivity"></activity>
         <activity android:name=".new_order_portal.select_restaurant"></activity>
         <activity android:name=".new_order_portal.select_pickup_location"></activity>
