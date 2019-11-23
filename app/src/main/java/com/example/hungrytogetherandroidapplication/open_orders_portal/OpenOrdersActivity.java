@@ -1,65 +1,73 @@
 package com.example.hungrytogetherandroidapplication.open_orders_portal;
 
 import android.os.Bundle;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.ImageView;
-import android.widget.ListView;
-import android.widget.TextView;
+
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.hungrytogetherandroidapplication.R;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class OpenOrdersActivity extends AppCompatActivity {
 
-    int[] restaurantImages = {R.drawable.macdonalds_background, R.drawable.macdonalds_background};
-    String[] restaurantName = { "Macdonald's", "Macdonald's"};
-    String[] foodCaptainName = { "Daryll", "Daryll2"};
-    String[] pickUpPointName = { "Blk57", "Blk59"};
-    String[] timeLeftName = { "22mins", "11mins"};
-    String[] slotsLeftName = { "2","3"};
+    RecyclerView recyclerView;
+    OpenOrderAdapter adapter;
+
+    List<OpenOrderItem> openOrderItemList;
+
 
 
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_open_orders);
 
-        ListView openOrdersListView = (ListView) findViewById(R.id.open_orders_list);
 
-        CustomAdaptor customAdaptor = new CustomAdaptor();
-        openOrdersListView.setAdapter(customAdaptor);
+        recyclerView = (RecyclerView) findViewById(R.id.open_orders_list);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this)); //by default is vertical layout
 
-    }
+        openOrderItemList = new ArrayList<>();
+
+        //adding some items to our list
+        openOrderItemList.add(
+                new OpenOrderItem(
+                        1,
+                        "Apple MacBook Air Core i5 5th Gen - (8 GB/128 GB SSD/Mac OS Sierra)",
+                        "13.3 inch, Silver, 1.35 kg",
+                        4.3,
+                        60000,
+                        R.drawable.macdonalds_background));
+
+        openOrderItemList.add(
+                new OpenOrderItem(
+                        1,
+                        "Dell Inspiron 7000 Core i5 7th Gen - (8 GB/1 TB HDD/Windows 10 Home)",
+                        "14 inch, Gray, 1.659 kg",
+                        4.3,
+                        60000,
+                        R.drawable.macdonalds_background));
+
+        openOrderItemList.add(
+                new OpenOrderItem(
+                        1,
+                        "Microsoft Surface Pro 4 Core m3 6th Gen - (4 GB/128 GB SSD/Windows 10)",
+                        "13.3 inch, Silver, 1.35 kg",
+                        4.3,
+                        60000,
+                        R.drawable.macdonalds_background));
+
+        adapter = new OpenOrderAdapter(this, openOrderItemList);
+        recyclerView.setAdapter(adapter);
 
 
-
-
-    class CustomAdaptor extends BaseAdapter{
-
-        @Override
-        public int getCount() {
-            return foodCaptainName.length;
-        }
-
-        @Override
-        public Object getItem(int position) {
-            return null;
-        }
-
-        @Override
-        public long getItemId(int position) {
-            return 0;
-        }
-
-        @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
-            convertView = getLayoutInflater().inflate(R.layout.open_order_item, null);
-
+            /*
             ImageView restaurantImagesView = (ImageView) convertView.findViewById(R.id.restaurant_image);
             TextView restaurantNameView = (TextView)convertView.findViewById(R.id.restaurant_name);
             TextView foodCaptainNameView = (TextView)convertView.findViewById(R.id.food_captain_name);
@@ -74,11 +82,9 @@ public class OpenOrdersActivity extends AppCompatActivity {
             timeLeftNameView.setText(timeLeftName[position]);
             slotsLeftNameView.setText(slotsLeftName[position]);
 
-            return convertView;
+             */
+
+
         }
     }
 
-
-
-
-}
