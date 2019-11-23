@@ -1,17 +1,20 @@
 package com.example.hungrytogetherandroidapplication.open_orders_portal;
 
 import android.content.Context;
-import android.media.Image;
+
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
+
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.hungrytogetherandroidapplication.R;
+import com.example.hungrytogetherandroidapplication.login_portal.AccountDetailsActivity;
 
 import java.util.List;
 
@@ -41,14 +44,27 @@ public class OpenOrderAdapter extends RecyclerView.Adapter<OpenOrderAdapter.Open
 
     @Override
     public void onBindViewHolder(OpenOrderViewHolder holder, int position) { //Binds data to OpenOrderViewHolder(UI element)
-        OpenOrderItem item = open_orders_list.get(position);
+        final OpenOrderItem item = open_orders_list.get(position);
 
-        holder.textViewTitle.setText(item.getTitle());
-        holder.textViewDesc.setText(item.getShortdesc());
-        holder.textViewRating.setText(String.valueOf(item.getRating()));
-        holder.textViewPrice.setText(String.valueOf(item.getPrice()));
+        holder.restaurantImage.setImageResource(item.getRestaurant_image());
+        holder.restaurantName.setText(item.getRestaurant_name());
+        holder.foodCaptainName.setText(item.getFood_captain_name());
+        holder.pickUpPointName.setText(String.valueOf(item.getPick_up_point_name()));
+        holder.timeLeftNum.setText(String.valueOf(item.getTime_left_num()));
+        holder.slotsLeftNum.setText(String.valueOf(item.getSlots_left_num()));
 
-        holder.imageView.setImageResource(item.getImage());
+
+        holder.openOrderButton.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                String foodCaptainName = "the food captain is" + item.getFood_captain_name();
+
+                Intent intent = new Intent(v.getContext(), AccountDetailsActivity.class);
+                intent.putExtra("iFoodCaptainName", foodCaptainName);
+                mContext.startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -57,17 +73,20 @@ public class OpenOrderAdapter extends RecyclerView.Adapter<OpenOrderAdapter.Open
     }
 
     class OpenOrderViewHolder extends RecyclerView.ViewHolder{
-        ImageView imageView;
-        TextView textViewTitle, textViewDesc, textViewRating, textViewPrice;
+        ImageView restaurantImage;
+        TextView restaurantName, foodCaptainName, pickUpPointName, timeLeftNum, slotsLeftNum;
+        Button openOrderButton;
 
         public OpenOrderViewHolder(View itemView) {
             super(itemView);
 
-            imageView = itemView.findViewById(R.id.imageView);
-            textViewTitle = itemView.findViewById(R.id.textViewTitle);
-            textViewDesc = itemView.findViewById(R.id.textViewShortDesc);
-            textViewRating = itemView.findViewById(R.id.textViewRating);
-            textViewPrice = itemView.findViewById(R.id.textViewPrice);
+            restaurantImage = itemView.findViewById(R.id.restaurant_image);
+            restaurantName = itemView.findViewById(R.id.restaurant_name);
+            foodCaptainName = itemView.findViewById(R.id.food_captain_name);
+            pickUpPointName = itemView.findViewById(R.id.pick_up_name);
+            timeLeftNum = itemView.findViewById(R.id.time_left_num);
+            slotsLeftNum = itemView.findViewById(R.id.slots_left_num);
+            openOrderButton = itemView.findViewById(R.id.view_open_order_button);
         }
     }
 }

@@ -3,9 +3,11 @@ package com.example.hungrytogetherandroidapplication.login_portal;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.accounts.Account;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -49,6 +51,17 @@ public class AccountDetailsActivity extends AppCompatActivity {
         idField = findViewById(R.id.id);
         photoField = findViewById(R.id.photo);
         fbUid = findViewById(R.id.firebaseUid);
+
+
+        //For testing if can receive intent
+        Intent receiveIntent = getIntent();
+        if (receiveIntent != null){
+            String receivedStringfromIntent = receiveIntent.getStringExtra("iFoodCaptainName");
+            Log.i("OpenOrders", receivedStringfromIntent);
+
+        }
+
+
 
 
 

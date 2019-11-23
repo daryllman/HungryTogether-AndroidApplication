@@ -2,71 +2,140 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:paddingHorizontal="10dp">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp">
+        android:layout_margin="5dp"
+        app:cardCornerRadius="15dp"
+        app:cardElevation="5dp">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="8dp">
 
+            <TextView
+                android:id="@+id/restaurant_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Restaurant name"
+                android:layout_marginVertical="5dp"/>
+
             <ImageView
-                android:id="@+id/imageView"
+                android:id="@+id/restaurant_image"
                 android:layout_width="120dp"
                 android:layout_height="90dp"
-                android:padding="4dp" />
+                android:layout_below="@id/restaurant_name"/>
 
             <TextView
-                android:id="@+id/textViewTitle"
+                android:id="@+id/food_captain_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
-                android:layout_toRightOf="@id/imageView"
-                android:text="Apple MacBook Air Core i5 5th Gen - (8 GB/128 GB SSD/Mac OS Sierra)"
+                android:layout_toRightOf="@id/restaurant_image"
+                android:layout_alignTop="@id/restaurant_image"
+                android:text="Food Captain: "
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
                 android:textColor="#000000" />
 
             <TextView
-                android:id="@+id/textViewShortDesc"
+                android:id="@+id/food_captain_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/textViewTitle"
+                android:layout_below="@id/food_captain_label"
                 android:layout_marginLeft="5dp"
-                android:layout_marginTop="5dp"
-                android:layout_toRightOf="@id/imageView"
-                android:text="13.3 Inch, 256 GB"
-                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
+                android:layout_alignTop="@id/restaurant_image"
+                android:layout_toRightOf="@id/food_captain_label"
+                android:text="foodcaptain name"/>
 
             <TextView
-                android:id="@+id/textViewRating"
+                android:id="@+id/pick_up_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/textViewShortDesc"
+                android:layout_below="@id/food_captain_label"
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="5dp"
-                android:layout_toRightOf="@id/imageView"
+                android:layout_toRightOf="@id/restaurant_image"
+                android:text="Pick up at:"/>
+
+            <TextView
+                android:id="@+id/pick_up_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/food_captain_label"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_toRightOf="@id/pick_up_label"
+                android:text="Blk 57.."/>
+
+            <TextView
+                android:id="@+id/slots_left_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/pick_up_label"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_toRightOf="@id/restaurant_image"
+                android:text="Slots left: "/>
+            <TextView
+                android:id="@+id/slots_left_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/pick_up_label"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_toRightOf="@id/slots_left_label"
+                android:text="99"/>
+
+
+            <TextView
+                android:id="@+id/time_left_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/pick_up_label"
+                android:layout_marginTop="5dp"
+                android:layout_toLeftOf="@id/time_left_num"
+                android:text="Time left: " />
+
+            <TextView
+                android:id="@+id/time_left_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/pick_up_label"
+                android:layout_marginTop="5dp"
+                android:layout_toLeftOf="@id/time_left_mins"
                 android:background="@color/colorPrimary"
-                android:paddingLeft="15dp"
-                android:paddingRight="15dp"
-                android:text="4.7"
+                android:paddingLeft="5dp"
+                android:text="10"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Small.Inverse"
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/textViewPrice"
+                android:id="@+id/time_left_mins"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/textViewRating"
-                android:layout_marginLeft="5dp"
+                android:layout_below="@id/pick_up_label"
                 android:layout_marginTop="5dp"
-                android:layout_toRightOf="@id/imageView"
-                android:text="INR 56990"
-                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+                android:layout_alignParentRight="true"
+                android:background="@color/colorPrimary"
+                android:paddingRight="5dp"
+                android:text="mins"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small.Inverse"
                 android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/view_open_order_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/time_left_num"
+                android:layout_marginTop="5dp"
+                android:layout_alignParentRight="true"
+                android:text="Let's Go"/>
+
 
         </RelativeLayout>
 

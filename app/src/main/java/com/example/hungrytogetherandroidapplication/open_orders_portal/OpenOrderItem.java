@@ -1,44 +1,48 @@
 package com.example.hungrytogetherandroidapplication.open_orders_portal;
 
+import android.content.res.Resources;
+import android.net.Uri;
+
 public class OpenOrderItem {
-    private int id;
-    private String title;
-    private String shortdesc;
-    private double rating;
-    private double price;
-    private int image;
 
-    public OpenOrderItem(int id, String title, String shortdesc, double rating, double price, int image) {
-        this.id = id;
-        this.title = title;
-        this.shortdesc = shortdesc;
-        this.rating = rating;
-        this.price = price;
-        this.image = image;
+
+    private int restaurant_image;
+    private String restaurant_name;
+    private String food_captain_name;
+    private String pick_up_point_name;
+    private int time_left_num;
+    private int slots_left_num;
+
+    public OpenOrderItem(int restaurant_image, String restaurant_name, String food_captain_name, String pick_up_point_name, int time_left_num, int slots_left_num) {
+        this.restaurant_image = restaurant_image;
+        this.restaurant_name = restaurant_name;
+        this.food_captain_name = food_captain_name;
+        this.pick_up_point_name = pick_up_point_name;
+        this.time_left_num = time_left_num;
+        this.slots_left_num = slots_left_num;
     }
 
-    public int getId() {
-        return id;
+    public int getRestaurant_image() {
+        return restaurant_image;
     }
 
-    public String getTitle() {
-        return title;
+    public String getRestaurant_name() {
+        return restaurant_name;
     }
 
-    public String getShortdesc() {
-        return shortdesc;
+    public String getFood_captain_name() {
+        return food_captain_name;
     }
 
-    public double getRating() {
-        return rating;
+    public String getPick_up_point_name() {
+        return pick_up_point_name;
     }
 
-    public double getPrice() {
-        return price;
+    public int getTime_left_num() {
+        return time_left_num;
     }
 
-    public int getImage() {
-        return image;
+    public int getSlots_left_num() {
+        return slots_left_num;
     }
-
 }
