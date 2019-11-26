@@ -53,18 +53,6 @@ public class AccountDetailsActivity extends AppCompatActivity {
         fbUid = findViewById(R.id.firebaseUid);
 
 
-        //For testing if can receive intent
-        Intent receiveIntent = getIntent();
-        if (receiveIntent != null){
-            String receivedStringfromIntent = receiveIntent.getStringExtra("iFoodCaptainName");
-            Log.i("OpenOrders", receivedStringfromIntent);
-
-        }
-
-
-
-
-
         // TEMPORARY - Just to jump to New Order Page...
         // TO BE REMOVED
         to_new_order_button = findViewById(R.id.to_new_order_button);

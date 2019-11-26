@@ -58,11 +58,7 @@ public class OpenOrderAdapter extends RecyclerView.Adapter<OpenOrderAdapter.Open
 
             @Override
             public void onClick(View v) {
-                String foodCaptainName = "the food captain is" + item.getFood_captain_name();
 
-                Intent intent = new Intent(v.getContext(), AccountDetailsActivity.class);
-                intent.putExtra("iFoodCaptainName", foodCaptainName);
-                mContext.startActivity(intent);
             }
         });
     }
