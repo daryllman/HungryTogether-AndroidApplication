@@ -24,7 +24,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 
-public class MainActivity extends AppCompatActivity {
+public class MainLogin extends AppCompatActivity {
 
     int RC_SIGN_IN = 0;
     // SignInButton signInButton;
@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main_login);
 
         // Initialise Firebase Auth
         mAuth = FirebaseAuth.getInstance();
@@ -105,13 +105,13 @@ public class MainActivity extends AppCompatActivity {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d("Sign in with credential", "signInWithCredential:success");
                             FirebaseUser user = mAuth.getCurrentUser();
-                            Toast.makeText(MainActivity.this, "Welcome!", Toast.LENGTH_LONG).show();
+                            Toast.makeText(MainLogin.this, "Welcome!", Toast.LENGTH_LONG).show();
                             // If Sign In is SUCCESSFUL, go to the next page (authenticated screen) - which is my AccountDetails UI
-                            startActivity(new Intent(MainActivity.this, AccountDetailsActivity.class)); // if already signed in, jump straight to next page.
+                            startActivity(new Intent(MainLogin.this, AccountDetailsActivity.class)); // if already signed in, jump straight to next page.
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.d("Sign in with credential", "signInWithCredential:failure", task.getException());
-                            Toast.makeText(MainActivity.this, "Sign in failed, please try again", Toast.LENGTH_LONG).show(); // Show error message on screen!
+                            Toast.makeText(MainLogin.this, "Sign in failed, please try again", Toast.LENGTH_LONG).show(); // Show error message on screen!
                         }
 
                         // ...
@@ -130,7 +130,7 @@ public class MainActivity extends AppCompatActivity {
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if (currentUser != null) {
-            startActivity(new Intent(MainActivity.this, AccountDetailsActivity.class)); // if already signed in, jump straight to next page.
+            startActivity(new Intent(MainLogin.this, AccountDetailsActivity.class)); // if already signed in, jump straight to next page.
         }
     }
 
