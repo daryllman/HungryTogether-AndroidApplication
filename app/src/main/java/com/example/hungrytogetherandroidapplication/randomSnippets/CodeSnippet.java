@@ -62,7 +62,7 @@ public class CodeSnippet {
             batch.commit().addOnCompleteListener(new OnCompleteListener<Void>() {
                 @Override
                 public void onComplete(@NonNull Task<Void> task) {
-                    Toast.makeText(MainActivity.this, "Batch Write Attempt Successful", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainLogin.this, "Batch Write Attempt Successful", Toast.LENGTH_SHORT).show();
                     Log.d("FIRESTORE", "Batch Write Operation Completed. Document ID: " + gen_id);
                 }
             });
@@ -138,7 +138,7 @@ public class CodeSnippet {
     batch.commit().addOnCompleteListener(new OnCompleteListener<Void>() {
         @Override
         public void onComplete(@NonNull Task<Void> task) {
-            Toast.makeText(MainActivity.this, "Successfully enrolled in " + food_captain_id + "'s OpenOrder!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(MainLogin.this, "Successfully enrolled in " + food_captain_id + "'s OpenOrder!", Toast.LENGTH_SHORT).show();
             Log.d("FIRESTORE", "Batch Write Operation Completed. " + current_user_id +
                     " has joined OpenOrder by " + food_captain_id);
         }
@@ -271,7 +271,7 @@ public class CodeSnippet {
     * - OpenOrder oorder1 = new OpenOrder(1234, "Blk 59", 1.80, new Date());
     * - DocumentReference docref = db.document("/UserBase/1337/OpenOrderCol/OpenOrder1");
 
-    Toast.makeText(MainActivity.this, "Write Attempt", Toast.LENGTH_SHORT).show();
+    Toast.makeText(MainLogin.this, "Write Attempt", Toast.LENGTH_SHORT).show();
     docref.set(oorder1);
 
      */
@@ -310,7 +310,7 @@ public class CodeSnippet {
                             @Override
                             public void onSuccess(DocumentReference documentReference) {
                                 Log.d("FIRESTORE", "In Collection OpenOrder: DocumentSnapshot written with ID: " + documentReference.getId());
-                                Toast.makeText(MainActivity.this, "Write Attempt Successful.", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(MainLogin.this, "Write Attempt Successful.", Toast.LENGTH_SHORT).show();
                             }
                         });
 
@@ -320,7 +320,7 @@ public class CodeSnippet {
                             @Override
                             public void onSuccess(DocumentReference documentReference) {
                                 Log.d("FIRESTORE", "In UserBase/user_id/OpenOrderCol: DocumentSnapshot written with ID: " + documentReference.getId());
-                                Toast.makeText(MainActivity.this, "Write Attempt Successful.", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(MainLogin.this, "Write Attempt Successful.", Toast.LENGTH_SHORT).show();
                             }
                         });
 
@@ -356,7 +356,7 @@ public class CodeSnippet {
                 @Override
                 public void onSuccess(DocumentReference documentReference) {
                     Log.d("FIRESTORE", "In Collection UserBase/7531/JoinedOrders: DocumentSnapshot written with ID: " + documentReference.getId());
-                    Toast.makeText(MainActivity.this, "Write Attempt Successful.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainLogin.this, "Write Attempt Successful.", Toast.LENGTH_SHORT).show();
                 }
             });
 
@@ -366,7 +366,7 @@ public class CodeSnippet {
                 @Override
                 public void onSuccess(DocumentReference documentReference) {
                     Log.d("FIRESTORE", "In Collection UserBase/1337/OrdersFromOthers: DocumentSnapshot written with ID: " + documentReference.getId());
-                    Toast.makeText(MainActivity.this, "Write Attempt Successful.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainLogin.this, "Write Attempt Successful.", Toast.LENGTH_SHORT).show();
                 }
             });
 
@@ -383,7 +383,7 @@ public class CodeSnippet {
                 @Override
                 public void onSuccess(DocumentReference documentReference) {
                     Log.d("FIRESTORE", "DocumentSnapshot written with ID: " + documentReference.getId());
-                    Toast.makeText(MainActivity.this, "Write Attempt Successful.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainLogin.this, "Write Attempt Successful.", Toast.LENGTH_SHORT).show();
                 }
             });
 
@@ -401,7 +401,7 @@ public class CodeSnippet {
         nav_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(SecondScreen.this, MainActivity.class));
+                startActivity(new Intent(SecondScreen.this, MainLogin.class));
             }
         });
 
