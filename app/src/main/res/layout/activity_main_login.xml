@@ -7,7 +7,7 @@
     android:background="@drawable/teal_gradient_background"
     android:orientation="vertical"
     android:gravity="center_horizontal"
-    tools:context=".login_portal.MainActivity">
+    tools:context=".login_portal.MainLogin">
 
     <ImageView
         android:id="@+id/hungry_together_logo"
