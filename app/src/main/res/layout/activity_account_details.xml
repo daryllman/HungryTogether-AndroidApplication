@@ -78,6 +78,16 @@
             android:layout_marginBottom="20dp"
             android:background="@color/colorPrimaryDark"
             android:textColor="#fff"/>
+        <Button
+            android:id="@+id/to_fragment_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="fragment"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="20dp"
+            android:background="@color/colorPrimaryDark"
+            android:textColor="#fff"/>
 
     </LinearLayout>
 

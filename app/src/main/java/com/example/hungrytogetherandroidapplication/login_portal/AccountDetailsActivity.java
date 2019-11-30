@@ -3,11 +3,9 @@ package com.example.hungrytogetherandroidapplication.login_portal;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.accounts.Account;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -16,6 +14,7 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.hungrytogetherandroidapplication.R;
+import com.example.hungrytogetherandroidapplication.main_activity_portal.MainActivity;
 import com.example.hungrytogetherandroidapplication.new_order_portal.NewOrderActivity;
 import com.example.hungrytogetherandroidapplication.open_orders_portal.OpenOrdersActivity;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -33,6 +32,7 @@ public class AccountDetailsActivity extends AppCompatActivity {
     Button sign_out;
     Button to_new_order_button;
     Button to_open_orders_button;
+    Button to_fragment;
     TextView nameField;
     TextView emailField;
     TextView idField;
@@ -65,14 +65,25 @@ public class AccountDetailsActivity extends AppCompatActivity {
         });
 
 
-        // TEMPORARY - Just to jump to New Order Page...
+        // TEMPORARY - Just to jump to Open Order Page...
         // TO BE REMOVED
-        to_new_order_button = findViewById(R.id.to_open_orders_button);
-        to_new_order_button.setOnClickListener(new View.OnClickListener() {
+        to_open_orders_button = findViewById(R.id.to_open_orders_button);
+        to_open_orders_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent OpenOrdersIntent = new Intent(v.getContext(), OpenOrdersActivity.class);
                 startActivity(OpenOrdersIntent);
+            }
+        });
+
+        // TEMPORARY - Just to jump to Main Activity Fragments ...
+        // TO BE REMOVED
+        to_fragment = findViewById(R.id.to_fragment_button);
+        to_fragment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent MainActivityIntent = new Intent(v.getContext(), MainActivity.class);
+                startActivity(MainActivityIntent);
             }
         });
 
@@ -129,7 +140,7 @@ public class AccountDetailsActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<Void> task) { // Execute this onComplete() func when listener (OnCompleteListener) listens that task is completed // Note: task is never null as the task here is a completed task
                         Toast.makeText(AccountDetailsActivity.this,"You have signed out successfully",Toast.LENGTH_SHORT).show();
                         FirebaseAuth.getInstance().signOut();
-                        startActivity(new Intent(AccountDetailsActivity.this, MainActivity.class)); // Jump to main login screen once sign out is successfull
+                        startActivity(new Intent(AccountDetailsActivity.this, MainLogin.class)); // Jump to main login screen once sign out is successfull
                         finish();
                     }
                 });
@@ -138,7 +149,7 @@ public class AccountDetailsActivity extends AppCompatActivity {
         /*
         FirebaseAuth.getInstance().signOut();
         Toast.makeText(AccountDetailsActivity.this,"You have signed out successfully",Toast.LENGTH_SHORT).show();
-        startActivity(new Intent(AccountDetailsActivity.this, MainActivity.class)); // Jump to main login screen once sign out is successfull
+        startActivity(new Intent(AccountDetailsActivity.this, MainLogin.class)); // Jump to main login screen once sign out is successfull
         finish();
          */
 
