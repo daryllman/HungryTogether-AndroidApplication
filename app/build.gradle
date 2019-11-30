@@ -31,10 +31,8 @@ dependencies {
      */
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'androidx.appcompat:appcompat:1.0.2'
+    implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
-
-    // For RecyclerView & Cardview
 
 
     // Glide library - to show image from url - image loading & caching purposes
@@ -46,12 +44,14 @@ dependencies {
     annotationProcessor 'com.github.bumptech.glide:compiler:4.8.0'
 
     // added in for Google Authentication
-    implementation 'com.google.android.gms:play-services-auth:16.0.0'
-    implementation 'com.google.firebase:firebase-auth:16.0.5'
+    implementation 'com.google.android.gms:play-services-auth:17.0.0'
+    implementation 'com.google.firebase:firebase-auth:19.2.0'
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+    // For RecyclerView & Cardview
     implementation 'androidx.recyclerview:recyclerview:1.1.0'
     implementation 'androidx.cardview:cardview:1.0.0'
 
@@ -60,4 +60,8 @@ dependencies {
     implementation 'androidx.navigation:navigation-ui:2.1.0'
     implementation 'androidx.lifecycle:lifecycle-extensions:2.1.0'
     implementation 'com.google.android.material:material:1.0.0'
+
+    // For FirebaseRecyclerAdapter
+    implementation 'com.google.firebase:firebase-firestore:21.3.0'
+    implementation 'com.firebaseui:firebase-ui-firestore:6.1.0'
 }

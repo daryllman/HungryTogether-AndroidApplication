@@ -8,6 +8,43 @@
   "client": [
     {
       "client_info": {
+        "mobilesdk_app_id": "1:175142536239:android:deb0ef727047f7909772da",
+        "android_client_info": {
+          "package_name": "com.example.hungrytgtdemo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "175142536239-t1t9asdm5hjg95d1s79v6gmufblu9jjq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.hungrytgtdemo",
+            "certificate_hash": "0dd95e6df3ac192262d7d1683c1f5b82d146391f"
+          }
+        },
+        {
+          "client_id": "175142536239-r6j1kho1v0ctpu5r6spfoq5ti984e5j7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCY7AbWWjf_YW_69QIRNxKaFQ90HtWajcU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "175142536239-20ae2voavedfbsa24qi17mpd2le9m2t9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
         "mobilesdk_app_id": "1:175142536239:android:953718da122bc1ac9772da",
         "android_client_info": {
           "package_name": "com.example.hungrytogetherandroidapplication"
@@ -15,11 +52,80 @@
       },
       "oauth_client": [
         {
+          "client_id": "175142536239-euot1hkra0ap84s8jtumfdo2scafdnea.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.hungrytogetherandroidapplication",
+            "certificate_hash": "0dd95e6df3ac192262d7d1683c1f5b82d146391f"
+          }
+        },
+        {
+          "client_id": "175142536239-p51jpqgpmoljgcor0sft3bca0mhce4l3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.hungrytogetherandroidapplication",
+            "certificate_hash": "24ff56c31e301b745dcc92d1587d7078b6cfb3a0"
+          }
+        },
+        {
+          "client_id": "175142536239-qqnmujmfg01u12mtdi83afc199up4422.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.hungrytogetherandroidapplication",
+            "certificate_hash": "ff506ae51f16c41b8bf8730181bcadf2d413c160"
+          }
+        },
+        {
+          "client_id": "175142536239-4r9o389c5qlfj1tap1ne0q75medu4qdd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.hungrytogetherandroidapplication",
+            "certificate_hash": "734f56e47fdbd4661ec982bc7db4f628174ee76a"
+          }
+        },
+        {
           "client_id": "175142536239-4f2da6km6us90km2487jkrukmqa3mbjs.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.example.hungrytogetherandroidapplication",
             "certificate_hash": "7ab06410421d829515f3ebaf4a7e7f7efff9904a"
+          }
+        },
+        {
+          "client_id": "175142536239-r6j1kho1v0ctpu5r6spfoq5ti984e5j7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCY7AbWWjf_YW_69QIRNxKaFQ90HtWajcU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "175142536239-20ae2voavedfbsa24qi17mpd2le9m2t9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:175142536239:android:627e9df2e5773e2c9772da",
+        "android_client_info": {
+          "package_name": "com.example.huntgtfirestoreintegrated"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "175142536239-jn3otdlvt4j6jela02nsnfr2vqfq3p9k.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.huntgtfirestoreintegrated",
+            "certificate_hash": "0dd95e6df3ac192262d7d1683c1f5b82d146391f"
           }
         },
         {
