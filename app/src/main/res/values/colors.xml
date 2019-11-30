@@ -6,4 +6,14 @@
     <color name="red">#ffff0000</color>
     <color name="black">#000000</color>
     <color name="white">#ffffff</color>
+
+    <color name="tealPrimary">#6DA1AC</color>
+    <color name="tealSecondary">#8EBDC5</color>
+    <color name="tealTertiary">#CBDEE6</color>
+
+    <color name="textGreyPrimary">#4B5F67</color>
+    <color name="textGreySecondary">#76939B</color>
+    <color name="textWhite">#FFFBFB</color>
+
+    <color name="iconDarkGrey">#5D666A</color>
 </resources>
