@@ -16,7 +16,6 @@ import com.bumptech.glide.Glide;
 import com.example.hungrytogetherandroidapplication.R;
 import com.example.hungrytogetherandroidapplication.main_activity_portal.MainActivity;
 import com.example.hungrytogetherandroidapplication.new_order_portal.NewOrderActivity;
-import com.example.hungrytogetherandroidapplication.open_orders_portal.OpenOrdersActivity;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -65,16 +64,6 @@ public class AccountDetailsActivity extends AppCompatActivity {
         });
 
 
-        // TEMPORARY - Just to jump to Open Order Page...
-        // TO BE REMOVED
-        to_open_orders_button = findViewById(R.id.to_open_orders_button);
-        to_open_orders_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent OpenOrdersIntent = new Intent(v.getContext(), OpenOrdersActivity.class);
-                startActivity(OpenOrdersIntent);
-            }
-        });
 
         // TEMPORARY - Just to jump to Main Activity Fragments ...
         // TO BE REMOVED

@@ -22,7 +22,6 @@ import com.example.hungrytogetherandroidapplication.login_portal.AccountDetailsA
 import com.example.hungrytogetherandroidapplication.login_portal.MainLogin;
 import com.example.hungrytogetherandroidapplication.main_activity_portal.MainActivity;
 import com.example.hungrytogetherandroidapplication.new_order_portal.NewOrderActivity;
-import com.example.hungrytogetherandroidapplication.open_orders_portal.OpenOrdersActivity;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;

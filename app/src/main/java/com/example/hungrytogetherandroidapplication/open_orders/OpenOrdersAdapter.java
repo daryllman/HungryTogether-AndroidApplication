@@ -71,7 +71,7 @@ public class OpenOrdersAdapter extends FirestoreRecyclerAdapter<OpenOrderItem, O
             restaurantName = itemView.findViewById(R.id.restaurant_name);
             captainName = itemView.findViewById(R.id.food_captain_name);
             pickupLocation = itemView.findViewById(R.id.pick_up_name);
-            dateTimeDeadline = itemView.findViewById(R.id.time_left_num);
+            dateTimeDeadline = itemView.findViewById(R.id.time_left_mins);
             slotsLeft = itemView.findViewById(R.id.slots_left_num);
         }
     }
