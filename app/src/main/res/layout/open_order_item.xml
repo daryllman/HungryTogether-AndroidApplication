@@ -99,7 +99,7 @@
                 android:layout_below="@id/pick_up_label"
                 android:layout_marginTop="5dp"
                 android:layout_toLeftOf="@id/time_left_num"
-                android:text="Time left: " />
+                android:text="Order at:" />
 
             <TextView
                 android:id="@+id/time_left_num"

@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.hungrytogetherandroidapplication.R;
 import com.example.hungrytogetherandroidapplication.login_portal.AccountDetailsActivity;
+import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 
 import java.util.List;
 
@@ -33,6 +34,10 @@ public class OpenOrderAdapter extends RecyclerView.Adapter<OpenOrderAdapter.Open
         this.mContext = mContext;
         this.open_orders_list = open_orders_list;
     }
+
+    public OpenOrderAdapter(FirestoreRecyclerOptions<com.example.hungrytogetherandroidapplication.open_orders.OpenOrderItem> orderOptions) {
+    }
+
 
     @Override
     public OpenOrderViewHolder onCreateViewHolder(ViewGroup parent, int viewType) { //returns instance of OpenOrderViewHolder: UI elements
