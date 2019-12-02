@@ -71,7 +71,7 @@ public class AccountDetailsActivity extends AppCompatActivity {
         to_fragment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent MainActivityIntent = new Intent(v.getContext(), MainActivity.class);
+                Intent MainActivityIntent = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(MainActivityIntent);
             }
         });

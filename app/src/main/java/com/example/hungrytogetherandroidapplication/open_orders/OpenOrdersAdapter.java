@@ -1,18 +1,28 @@
 package com.example.hungrytogetherandroidapplication.open_orders;
 
+import android.app.Activity;
+import android.app.FragmentManager;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentContainer;
+import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.hungrytogetherandroidapplication.R;
 
+import com.example.hungrytogetherandroidapplication.main_activity_portal.MainActivity;
+import com.example.hungrytogetherandroidapplication.ordering_portal.OrderingFragment;
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 
@@ -32,7 +42,7 @@ public class OpenOrdersAdapter extends FirestoreRecyclerAdapter<OpenOrderItem, O
     }
 
     @Override
-    protected void onBindViewHolder(@NonNull OpenOrderHolder holder, int position, @NonNull OpenOrderItem model) { // Tells Adapter what we want to put in each view in each card layout
+    protected void onBindViewHolder(@NonNull OpenOrderHolder holder, int position, @NonNull final OpenOrderItem model) { // Tells Adapter what we want to put in each view in each card layout
         holder.restaurantName.setText(model.getRestaurant_name());
         holder.captainName.setText(model.getCaptain_name());
         holder.pickupLocation.setText(model.getPickup_location());
@@ -43,6 +53,32 @@ public class OpenOrdersAdapter extends FirestoreRecyclerAdapter<OpenOrderItem, O
         Glide
                 .with(holder.restaurantImage.getContext())
                 .load(model.getRestaurant_image()).into(holder.restaurantImage); //load photo from url(personPhotoURL) into the photoField
+
+        holder.toOrderingPortalButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Fragment newFragment = new OrderingFragment();
+                FragmentTransaction fragmentTransaction = MainActivity.fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.nav_host_fragment, new OrderingFragment());
+               fragmentTransaction.addToBackStack(null).commit();
+            }
+
+            /*
+            // Create new fragment and transaction
+                Fragment newFragment = new ExampleFragment();
+                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+
+                // Replace whatever is in the fragment_container view with this fragment,
+                // and add the transaction to the back stack
+                transaction.replace(R.id.fragment_container, newFragment);
+                transaction.addToBackStack(null);
+
+                // Commit the transaction
+                transaction.commit();
+            */
+
+
+        });
 
     }
 
@@ -63,6 +99,8 @@ public class OpenOrdersAdapter extends FirestoreRecyclerAdapter<OpenOrderItem, O
         TextView dateTimeDeadline;
         TextView slotsLeft;
 
+        Button toOrderingPortalButton;
+
 
 
         public OpenOrderHolder(@NonNull View itemView) { // Holder to connect variable to a particular layout id in card
@@ -73,6 +111,7 @@ public class OpenOrdersAdapter extends FirestoreRecyclerAdapter<OpenOrderItem, O
             pickupLocation = itemView.findViewById(R.id.pick_up_name);
             dateTimeDeadline = itemView.findViewById(R.id.time_left_mins);
             slotsLeft = itemView.findViewById(R.id.slots_left_num);
+            toOrderingPortalButton = itemView.findViewById(R.id.to_ordering_button);
         }
     }
 }

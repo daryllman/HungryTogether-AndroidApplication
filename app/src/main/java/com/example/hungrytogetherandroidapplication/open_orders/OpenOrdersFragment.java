@@ -6,6 +6,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -32,11 +33,12 @@ public class OpenOrdersFragment extends Fragment {
 
     private OpenOrdersAdapter adapter;
 
+    FragmentManager fragmentManager;
+
     Context thisContext;
 
 
-    public OpenOrdersFragment() {
-        // Required empty public constructor
+    public OpenOrdersFragment(){
     }
 
 

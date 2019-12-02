@@ -22,7 +22,7 @@ public class OrderingFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View fragmentView = inflater.inflate(R.layout.fragment_my_profile, container, false);
+        View fragmentView = inflater.inflate(R.layout.fragment_ordering, container, false);
 
         /**
          * Continue your code from here on.
