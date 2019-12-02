@@ -6,26 +6,27 @@
     app:startDestination="@+id/navigation_open_orders">
 
     <fragment
-        android:id="@+id/navigation_my_orders"
-        android:name="com.example.hungrytogetherandroidapplication.my_orders.MyOrdersFragment"
-        android:label="@string/title_my_orders"
-        tools:layout="@layout/fragment_my_orders" />
-
-    <fragment
         android:id="@+id/navigation_open_orders"
         android:name="com.example.hungrytogetherandroidapplication.open_orders.OpenOrdersFragment"
         android:label="@string/title_open_orders"
         tools:layout="@layout/fragment_open_orders" />
 
     <fragment
-        android:id="@+id/navigation_new_order"
-        android:name="com.example.hungrytogetherandroidapplication.new_order.NewOrderFragment"
+        android:id="@+id/navigation_my_orders"
+        android:name="com.example.hungrytogetherandroidapplication.my_orders.MyOrdersFragment"
+        android:label="@string/title_my_orders"
+        tools:layout="@layout/fragment_my_orders" />
+
+    <fragment
+        android:id="@+id/navigation_food_captain"
+        android:name="com.example.hungrytogetherandroidapplication.food_captain_orders.FoodCaptainFragment"
         android:label="@string/title_new_order"
-        tools:layout="@layout/fragment_new_order" />
+        tools:layout="@layout/fragment_food_captain" />
 
     <fragment
         android:id="@+id/navigation_my_profile"
         android:name="com.example.hungrytogetherandroidapplication.my_profile.MyProfileFragment"
         android:label="@string/title_my_profile"
         tools:layout="@layout/fragment_my_profile" />
+
 </navigation>

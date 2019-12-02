@@ -2,19 +2,19 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/navigation_my_orders"
-        android:icon="@drawable/icon_my_orders"
-        android:title="@string/title_my_orders" />
-
-    <item
         android:id="@+id/navigation_open_orders"
         android:icon="@drawable/icon_open_orders"
         android:title="@string/title_open_orders" />
 
     <item
-        android:id="@+id/navigation_new_order"
+        android:id="@+id/navigation_my_orders"
+        android:icon="@drawable/icon_my_orders"
+        android:title="@string/title_my_orders" />
+
+    <item
+        android:id="@+id/navigation_food_captain"
         android:icon="@drawable/icon_new_order"
-        android:title="@string/title_new_order" />
+        android:title="@string/title_food_captain" />
 
     <item
         android:id="@+id/navigation_my_profile"

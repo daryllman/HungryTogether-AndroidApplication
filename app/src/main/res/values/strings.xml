@@ -1,9 +1,10 @@
 <resources>
     <string name="app_name">HungryTogether</string>
 
-    <string name="title_my_orders">My Orders</string>
     <string name="title_open_orders">Open Orders</string>
+    <string name="title_my_orders">My Orders</string>
     <string name="title_new_order">New Order</string>
+    <string name="title_food_captain">Food Captain</string>
     <string name="title_my_profile">My Profile</string>
 
 
