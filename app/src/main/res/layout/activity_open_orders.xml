@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@drawable/teal_gradient_background"
-    tools:context="com.example.hungrytogetherandroidapplication.open_orders_portal.OpenOrdersActivity">
+    tools:context="com.example.hungrytogetherandroidapplication.open_orders.OpenOrdersFragment">
 
     <TextView
         android:layout_width="match_parent"
