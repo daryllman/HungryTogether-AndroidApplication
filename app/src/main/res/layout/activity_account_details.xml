@@ -69,11 +69,11 @@
             android:textColor="#fff"/>
 
         <Button
-            android:id="@+id/to_open_orders_button"
+            android:id="@+id/to_ordering_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Open Orders"
+            android:text="Ordering"
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="20dp"
             android:background="@color/colorPrimaryDark"

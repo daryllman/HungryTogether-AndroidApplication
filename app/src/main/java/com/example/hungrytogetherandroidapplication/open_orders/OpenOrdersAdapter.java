@@ -22,6 +22,7 @@ import com.bumptech.glide.Glide;
 import com.example.hungrytogetherandroidapplication.R;
 
 import com.example.hungrytogetherandroidapplication.main_activity_portal.MainActivity;
+import com.example.hungrytogetherandroidapplication.ordering_portal.OrderingPortalActivity;
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 
@@ -62,16 +63,18 @@ public class OpenOrdersAdapter extends FirestoreRecyclerAdapter<OpenOrderItem, O
         holder.toOrderingPortalButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Dialog dialog = new Dialog(activity);
-//                dialog.setContentView(R.layout.sample_dialog);
+//               Dialog dialog = new Dialog(activity);
+//               dialog.setContentView(R.layout.sample_dialog);
+//               dialog.show();
+
+//                AlertDialog.Builder mBuilder = new AlertDialog.Builder(activity);
+//                View mView = activity.getLayoutInflater().inflate(R.layout.sample_dialog, null);
+//                mBuilder.setView(mView);
+//                final AlertDialog dialog = mBuilder.create();
 //                dialog.show();
 
-                AlertDialog.Builder mBuilder = new AlertDialog.Builder(activity);
-                View mView = activity.getLayoutInflater().inflate(R.layout.sample_dialog, null);
-                mBuilder.setView(mView);
-                final AlertDialog dialog = mBuilder.create();
-                dialog.show();
-
+                Intent orderingPortalIntent = new Intent(activity, OrderingPortalActivity.class);
+                activity.startActivity(orderingPortalIntent);
 
 
 
