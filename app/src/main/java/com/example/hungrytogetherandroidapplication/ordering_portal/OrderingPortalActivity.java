@@ -12,8 +12,6 @@ import com.example.hungrytogetherandroidapplication.main_activity_portal.MainAct
 
 public class OrderingPortalActivity extends AppCompatActivity {
 
-    Button backToMainActivityButton;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,30 +28,20 @@ public class OrderingPortalActivity extends AppCompatActivity {
 
 
 
+        Button backToMainActivityButton= (Button) findViewById(R.id.back_to_mainActivity_button);
+        backToMainActivityButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                //
+                // code to send final submissions to firestore
+                //
 
 
-
-
-
-
-
-
-
-        //IDK WHY THIS CANNOT WORK>>>TBC ..dont touch first
-//        backToMainActivityButton.findViewById(R.id.back_to_mainActivity_button);
-//        backToMainActivityButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//
-//                //
-//                // code to send final submissions to firestore
-//                //
-//
-//
-//                Intent mainActivityIntent = new Intent(view.getContext(), MainActivity.class);
-//                startActivity(mainActivityIntent);
-//            }
-//        });
+                Intent mainActivityIntent = new Intent(view.getContext(), MainActivity.class);
+                startActivity(mainActivityIntent);
+            }
+        });
 
     }
 }
