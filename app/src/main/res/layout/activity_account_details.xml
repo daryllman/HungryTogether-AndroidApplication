@@ -88,6 +88,14 @@
             android:layout_marginBottom="20dp"
             android:background="@color/colorPrimaryDark"
             android:textColor="#fff"/>
+        <TextView
+            android:id="@+id/sdasdasd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Note that this is just a temporary page - will be removed. after login, it should directly lead to the page in FRAGMENT button "
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="10sp" />
 
     </LinearLayout>
 
