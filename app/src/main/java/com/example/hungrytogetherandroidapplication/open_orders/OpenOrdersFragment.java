@@ -1,6 +1,7 @@
 package com.example.hungrytogetherandroidapplication.open_orders;
 
 
+import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 
@@ -33,6 +34,7 @@ public class OpenOrdersFragment extends Fragment {
     private OpenOrdersAdapter adapter;
 
     Context thisContext;
+    ViewGroup viewGroupContainer;
 
 
     public OpenOrdersFragment() {
@@ -43,6 +45,8 @@ public class OpenOrdersFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        viewGroupContainer = container;
 
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_open_orders, container, false);
@@ -56,7 +60,7 @@ public class OpenOrdersFragment extends Fragment {
                 .setQuery(query, OpenOrderItem.class)
                 .build();
 
-        adapter = new OpenOrdersAdapter(orderOptions);
+        adapter = new OpenOrdersAdapter(orderOptions, getActivity());
 
         RecyclerView recyclerView = getActivity().findViewById(R.id.open_orders_recyclerview_list);
         //recyclerView.setHasFixedSize(true);
@@ -86,4 +90,8 @@ public class OpenOrdersFragment extends Fragment {
         }
 
     }
+
+
+
+
 }
