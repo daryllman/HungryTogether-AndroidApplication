@@ -19,7 +19,27 @@ public class OrderingPortalActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ordering_portal);
 
-        //IDK WHY THIS CANNOT WORK>>>TBC
+        // this is your activity.
+        // the layout is activity_ordering_portal
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        //IDK WHY THIS CANNOT WORK>>>TBC ..dont touch first
 //        backToMainActivityButton.findViewById(R.id.back_to_mainActivity_button);
 //        backToMainActivityButton.setOnClickListener(new View.OnClickListener() {
 //            @Override
