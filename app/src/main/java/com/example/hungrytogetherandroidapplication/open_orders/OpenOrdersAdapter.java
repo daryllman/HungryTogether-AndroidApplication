@@ -25,7 +25,7 @@ import com.example.hungrytogetherandroidapplication.main_activity_portal.MainAct
 import com.example.hungrytogetherandroidapplication.ordering_portal.OrderingPortalActivity;
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
-
+import com.google.android.material.snackbar.Snackbar;
 
 
 public class OpenOrdersAdapter extends FirestoreRecyclerAdapter<OpenOrderItem, OpenOrdersAdapter.OpenOrderHolder> {
@@ -46,7 +46,7 @@ public class OpenOrdersAdapter extends FirestoreRecyclerAdapter<OpenOrderItem, O
     }
 
     @Override
-    protected void onBindViewHolder(@NonNull final OpenOrderHolder holder, int position, @NonNull OpenOrderItem model) { // Tells Adapter what we want to put in each view in each card layout
+    protected void onBindViewHolder(@NonNull final OpenOrderHolder holder, int position, @NonNull final OpenOrderItem model) { // Tells Adapter what we want to put in each view in each card layout
         context = holder.restaurantImage.getContext(); //taking any to access context.
 
         holder.restaurantName.setText(model.getRestaurant_name());
@@ -73,10 +73,12 @@ public class OpenOrdersAdapter extends FirestoreRecyclerAdapter<OpenOrderItem, O
 //                final AlertDialog dialog = mBuilder.create();
 //                dialog.show();
 
+
+                // To pass order_id to OrderingPortalActivity --- so the activity knows which order is the click referring to.
                 Intent orderingPortalIntent = new Intent(activity, OrderingPortalActivity.class);
+                orderingPortalIntent.putExtra("order_id", model.getOrder_id());
+                //Toast.makeText(activity,"This is: "+model.getOrder_id(), Toast.LENGTH_SHORT).show(); //to be removed
                 activity.startActivity(orderingPortalIntent);
-
-
 
             }
         });
