@@ -13,18 +13,20 @@ public class OpenOrderItem {
     private String pickup_location;
     private String datetimedeadline;
     private String slots_left;
+    private String order_id;
 
     public OpenOrderItem() {
         // empty constructor
     }
 
-    public OpenOrderItem(String restaurant_image, String restaurant_name, String captain_name, String pickup_location, String datetimedeadline, String slots_left) {
+    public OpenOrderItem(String restaurant_image, String restaurant_name, String captain_name, String pickup_location, String datetimedeadline, String slots_left, String order_id) {
         this.restaurant_image = restaurant_image;
         this.restaurant_name = restaurant_name;
         this.captain_name = captain_name;
         this.pickup_location = pickup_location;
         this.datetimedeadline = datetimedeadline;
         this.slots_left = slots_left;
+        this.order_id = order_id;
     }
 
     //NOTE!!
@@ -53,6 +55,9 @@ public class OpenOrderItem {
     public String getDatetimedeadline() { return datetimedeadline; }
 
     public String getSlots_left() { return slots_left; }
+
+    public String getOrder_id() { return order_id; }
+
 }
 
 /*
