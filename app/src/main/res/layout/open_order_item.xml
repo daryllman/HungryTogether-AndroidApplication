@@ -101,6 +101,7 @@
                 android:layout_toLeftOf="@id/time_left_num"
                 android:text="Order at:" />
 
+            <!-- time_left_mins is being replaced with time. time_left_num & time_left_mins are for future flexbility-->
             <TextView
                 android:id="@+id/time_left_num"
                 android:layout_width="wrap_content"
@@ -110,7 +111,7 @@
                 android:layout_toLeftOf="@id/time_left_mins"
                 android:background="@color/colorPrimary"
                 android:paddingLeft="5dp"
-                android:text="10"
+                android:text=""
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Small.Inverse"
                 android:textStyle="bold" />
 
