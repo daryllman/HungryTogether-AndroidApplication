@@ -24,7 +24,7 @@ public class OrderingPortalActivity extends AppCompatActivity {
 
         Intent fromOpenOrdersIntent = getIntent();
         String orderIdString = fromOpenOrdersIntent.getStringExtra("order_id");
-        Toast.makeText(this,"received order_id: "+ orderIdString, Toast.LENGTH_LONG).show(); //to be removed
+        //Toast.makeText(this,"received order_id: "+ orderIdString, Toast.LENGTH_LONG).show(); //to be removed
 
 
 
