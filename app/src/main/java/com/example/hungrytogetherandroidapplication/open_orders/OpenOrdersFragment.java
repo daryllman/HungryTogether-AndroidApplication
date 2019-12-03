@@ -34,7 +34,7 @@ import java.util.zip.Inflater;
 public class OpenOrdersFragment extends Fragment {
 
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
-    private CollectionReference openOrdersRef = db.collection("OpenOrder");
+    private CollectionReference openOrdersRef = db.collection("OpenOrders");
 
     private OpenOrdersAdapter adapter;
 
@@ -55,7 +55,7 @@ public class OpenOrdersFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_open_orders, container,false);
 
-        FloatingActionButton fab = (FloatingActionButton) container.findViewById(R.id.plus_button);
+        //FloatingActionButton fab = (FloatingActionButton) container.findViewById(R.id.plus_button);
 
 
         return view;
