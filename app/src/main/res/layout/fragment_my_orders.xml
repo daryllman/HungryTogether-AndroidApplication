@@ -5,10 +5,31 @@
     android:layout_height="match_parent"
     tools:context=".my_orders.MyOrdersFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="My orders fragment" />
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/my_orders_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="My Orders"
+            android:textSize="50dp"
+            android:textColor="#FFFFFF"
+            android:layout_marginLeft="20dp"/>
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/my_orders_recyclerview_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="vertical"/>
+
+    </LinearLayout>
+
 
 </FrameLayout>
