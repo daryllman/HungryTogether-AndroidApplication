@@ -5,10 +5,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -58,10 +60,21 @@ public class MyOrdersAdapter extends RecyclerView.Adapter<MyOrdersAdapter.MyOrde
             public void onClick(View view) {
                 AlertDialog.Builder mBuilder = new AlertDialog.Builder(mActivity);
                 View mView = mActivity.getLayoutInflater().inflate(R.layout.payment_dialog, null);
+                ImageButton paylahButton = mView.findViewById(R.id.paylah_image_button);
+                paylahButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        String urlString = mActivity.getString(R.string.mcspicy_url);
+                        Uri uri = Uri.parse(urlString); // missing 'http://' will cause crashed
+                        Intent urlIntent = new Intent(Intent.ACTION_VIEW, uri);
+                        mActivity.startActivity(urlIntent);
+                    }
+                });
                 mBuilder.setView(mView);
                 final AlertDialog dialog = mBuilder.create();
                 dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
                 dialog.show();
+
             }
         });
         switch (item.getProgress_state()){
