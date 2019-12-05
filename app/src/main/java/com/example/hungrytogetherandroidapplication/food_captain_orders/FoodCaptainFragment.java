@@ -147,12 +147,12 @@ public class FoodCaptainFragment extends Fragment {
                         Log.d("firestore", "retrieved captain_orders as: " + captain_orders);
 
                         // Get firestore references
-                        DocumentReference openOrderRef = db.collection("OpenOrders").document(captain_orders);
+//                        DocumentReference openOrderRef = db.collection("OpenOrders").document(captain_orders);
                         //setUpRecyclerView("evangefctesting");
 //                        CollectionReference sailorOrdersRef = db.collection("OpenOrders").document(captain_orders).collection("SailorOrders");
 
                         // Inflate the fragment layout
-                        inflateLayout(openOrderRef);
+                        inflateLayout(captain_orders);
 
 
                     } else {
@@ -168,7 +168,10 @@ public class FoodCaptainFragment extends Fragment {
         return fragmentView;
     }
 
-    private void inflateLayout(final DocumentReference openOrderRef) {
+    private void inflateLayout(final String captain_orders) {
+
+        // Get firestore path reference
+        final DocumentReference openOrderRef = db.collection("OpenOrders").document(captain_orders);
 
         // todo find a better representation
         final ArrayList<Integer> foodCaptProgress = new ArrayList<>();
@@ -188,17 +191,21 @@ public class FoodCaptainFragment extends Fragment {
                     if (document.exists()) {
                         Log.d("success", "DocumentSnapshot data: " + document.getData());
 
-                        String restaurant_name = document.getString("restaurant_name");
-                        String captain_fee = document.getString("captain_fee");
-                        String pick_up_location = document.getString("pick_up_location");
-                        String slots_left = document.getString("slots_left");
-                        String datetimedeadline = document.getString("datetimedeadline");
+                        if(document.getString("restaurant_name") != null){
+                            String restaurant_name = document.getString("restaurant_name");
+                            String captain_fee = document.getString("captain_fee");
+                            String pick_up_location = document.getString("pick_up_location");
+                            String slots_left = document.getString("slots_left");
+                            String datetimedeadline = document.getString("datetimedeadline");
 
-                        textViewRestaurant.setText(restaurant_name);
-                        textViewCaptfee.setText(captain_fee);
-                        textViewPickUpPt.setText(pick_up_location);
-                        textViewSlotsLeft.setText(slots_left);
-                        textViewTimeEnd.setText(datetimedeadline);
+                            textViewRestaurant.setText(restaurant_name);
+                            textViewCaptfee.setText(captain_fee);
+                            textViewPickUpPt.setText(pick_up_location);
+                            textViewSlotsLeft.setText(slots_left);
+                            textViewTimeEnd.setText(datetimedeadline);
+                        }
+
+
 
                     } else {
                         Log.d("success", "No such document");
@@ -270,7 +277,9 @@ public class FoodCaptainFragment extends Fragment {
                         // Completed order, delete from OpenOrders and write to PastOrders
                         //todo: problem with subcollection SailorOrders is not deleted nor ported over
                         if (progstate_int==4) {
-                            moveFirestoreDocument(fromPath, toPath);
+                            DocumentReference fromPath = db.collection("OpenOrders").document(captain_orders);
+                            DocumentReference toPath = db.collection("PastOrders").document(captain_orders);
+                            //moveFirestoreDocument(fromPath, toPath);
                             Log.d(TAG, "onClick: movingtest to moved");
                         }
                     }
@@ -281,8 +290,8 @@ public class FoodCaptainFragment extends Fragment {
 
     // Moving completed orders from OpenOrders to PastOrders: use the same document id (captain_orders)
     // to test this code, first create document "movingtest" under OpenOrders
-    private DocumentReference fromPath = db.collection("OpenOrders").document("movingtest");
-    private DocumentReference toPath = db.collection("PastOrders").document("movingtest");
+//    private DocumentReference fromPath = db.collection("OpenOrders").document("movingtest");
+//    private DocumentReference toPath = db.collection("PastOrders").document("movingtest");
 
     /**
      * How to move a document in Cloud Firestore?
