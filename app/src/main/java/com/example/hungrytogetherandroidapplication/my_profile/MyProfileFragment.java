@@ -41,10 +41,8 @@ public class MyProfileFragment extends Fragment {
     TextView emailField;
     TextView idField;
     ImageView photoField;
-<<<<<<< HEAD
     TextView fbUid;
-=======
->>>>>>> abaff0e8a16f1440c9fc76d7446ab44462cb606b
+
     Button sign_out;
 
 
@@ -63,12 +61,8 @@ public class MyProfileFragment extends Fragment {
         nameField = fragmentView.findViewById(R.id.test_name);
         emailField = fragmentView.findViewById(R.id.test_email);
         photoField = fragmentView.findViewById(R.id.test_photo);
-<<<<<<< HEAD
         sign_out = fragmentView.findViewById(R.id.log_out);
-=======
 
-
->>>>>>> abaff0e8a16f1440c9fc76d7446ab44462cb606b
 
         // Configure sign-in to request the user's ID, email address, and basic
         // profile, ID and basic profile are included in DEFAULT_SIGN_IN.
@@ -93,16 +87,12 @@ public class MyProfileFragment extends Fragment {
             FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
             // Show the account details on this page~
-<<<<<<< HEAD
+
             nameField.setText(personName);
             emailField.setText(personEmail);
 //            idField.setText("ID: "+ personId);
 //            fbUid.setText("fb UID:" + user.getUid());
-=======
-            nameField.setText("Name: "+ personName);
-            emailField.setText("Email: "+ personEmail);
-            idField.setText("ID: "+ personId);
->>>>>>> abaff0e8a16f1440c9fc76d7446ab44462cb606b
+
 
 
             // Glide is a module to load and cache images (read the build.gradle file for more info that i added)
@@ -110,7 +100,7 @@ public class MyProfileFragment extends Fragment {
                     .with(this)
                     .load(personPhotoURL).into(photoField); //load photo from url(personPhotoURL) into the photoField
         }
-<<<<<<< HEAD
+
 
         // Create Listener for sign out button
         sign_out.setOnClickListener(new View.OnClickListener() {
@@ -120,9 +110,6 @@ public class MyProfileFragment extends Fragment {
             }
         });
 
-
-=======
->>>>>>> abaff0e8a16f1440c9fc76d7446ab44462cb606b
         return fragmentView;
     }
 
