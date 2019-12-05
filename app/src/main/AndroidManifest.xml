@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.hungrytogetherandroidapplication">
     <!-- Add internet permission - needed for network calls -->
     <uses-permission android:name="android.permission.INTERNET" /> <!-- I'm Adding here first. In case we need to load images from local folders like DCIM or Pictures -->
@@ -12,6 +13,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+        <activity
+            android:name=".new_order_portal.select_slots_available"
+            android:theme="@style/AppTheme.CustomTheme"></activity>
         <activity android:name=".login_portal.MainLogin">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,9 +26,15 @@
         </activity>
         <activity android:name=".login_portal.AccountDetailsActivity" />
         <activity android:name=".new_order_portal.NewOrderActivity" />
-        <activity android:name=".new_order_portal.select_restaurant" />
-        <activity android:name=".new_order_portal.select_pickup_location" />
-        <activity android:name=".new_order_portal.select_time_limit" />
+        <activity
+            android:name=".new_order_portal.select_restaurant"
+            android:theme="@style/AppTheme.CustomTheme" />
+        <activity
+            android:name=".new_order_portal.select_pickup_location"
+            android:theme="@style/AppTheme.CustomTheme" />
+        <activity
+            android:name=".new_order_portal.select_time_limit"
+            android:theme="@style/AppTheme.CustomTheme" />
         <activity android:name=".main_activity_portal.MainActivity" />
         <activity android:name=".ordering_portal.OrderingPortalActivity"/>
 

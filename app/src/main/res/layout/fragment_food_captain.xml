@@ -1,14 +1,157 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".food_captain_orders.FoodCaptainFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Food Captain" />
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/FoodCaptHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Food Captain"
+            android:textSize="40dp"
+            android:textColor="#FFFFFF"
+            android:layout_marginStart="10dp"/>
+
+        <!--	<Button-->
+        <!--	android:id="@+id/buttonViewFoodCaptDetails"-->
+        <!--	android:layout_width="match_parent"-->
+        <!--	android:layout_height="wrap_content"-->
+        <!--	android:layout_below="@+id/FoodCaptHeader"-->
+        <!--	android:text="View Details"/>-->
+
+
+        <TextView
+            android:id="@+id/textViewRestaurant"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_below="@+id/FoodCaptHeader"
+            android:layout_marginStart="10dp"
+            android:textSize="20sp"
+            android:text="Restaurant name here"/>
+
+        <ImageView
+            android:id="@+id/restaurant_image"
+            android:layout_width="120dp"
+            android:layout_height="90dp"
+            android:layout_below="@id/textViewRestaurant"
+            android:layout_marginStart="10dp"/>
+
+        <TextView
+            android:id="@+id/textViewCaptfee_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textViewRestaurant"
+            android:layout_marginStart="5dp"
+            android:layout_toEndOf="@id/restaurant_image"
+            android:text="Capt fee: "
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/textViewCaptfee"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/textViewCaptfee_label"
+            android:layout_below="@+id/textViewRestaurant"
+            android:textSize="20sp"
+            android:text="$$$"/>
+
+        <TextView
+            android:id="@+id/textViewPickUpPt_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_toEndOf="@id/restaurant_image"
+            android:layout_below="@+id/textViewCaptfee_label"
+            android:layout_marginStart="5dp"
+            android:textSize="20sp"
+            android:text="Pick up point: "/>
+
+        <TextView
+            android:id="@+id/textViewPickUpPt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textViewCaptfee_label"
+            android:layout_toEndOf="@id/textViewPickUpPt_label"
+            android:textSize="20sp"
+            android:text="Blk 59"/>
+
+        <TextView
+            android:id="@+id/textViewSlotsLeft_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_below="@+id/textViewPickUpPt_label"
+            android:layout_toEndOf="@id/restaurant_image"
+            android:layout_marginStart="5dp"
+            android:textSize="20sp"
+            android:text="Slots Left: "/>
+
+        <TextView
+            android:id="@+id/textViewSlotsLeft"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textViewPickUpPt_label"
+            android:layout_toEndOf="@id/textViewSlotsLeft_label"
+            android:textSize="20sp"
+            android:text="999"/>
+
+        <TextView
+            android:id="@+id/textViewTimeEnd_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_below="@+id/textViewPickUpPt_label"
+            android:layout_toStartOf="@+id/textViewTimeEnd"
+            android:layout_marginStart="20dp"
+            android:textSize="20sp"
+            android:text="Time end: "/>
+
+        <TextView
+            android:id="@+id/textViewTimeEnd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textViewPickUpPt_label"
+            android:layout_alignParentEnd="true"
+            android:textSize="20sp"
+            android:text="00:00"/>
+
+        <ImageView
+            android:id="@+id/imageViewFoodCaptProgress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/restaurant_image"
+            android:layout_margin="5dp"
+            android:src="@drawable/foodcapt1"/>
+
+        <Button
+            android:id="@+id/buttonUpdateStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Update status"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/imageViewFoodCaptProgress"
+            android:layout_marginBottom="5dp"
+            android:background="@color/colorPrimaryDark"
+            android:textColor="#fff"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/food_capt_recyclerview_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/buttonUpdateStatus"
+            android:scrollbars="vertical"/>
+
+    </RelativeLayout>
+
 
 </FrameLayout>

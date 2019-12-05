@@ -4,58 +4,58 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/teal_gradient_background"
+    android:background="#5B8A8A"
     tools:context=".new_order_portal.select_restaurant">
+
 
     <TextView
         android:id="@+id/question"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="where are you getting food from today?"
+        android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="20dp"
-        android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.282" />
-
-
-    <ImageView
-        android:id="@+id/macslogo"
-        android:layout_width="111dp"
-        android:layout_height="228dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.163"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/question"
-        app:srcCompat="@drawable/macs" />
+        app:layout_constraintVertical_bias="0.183" />
 
     <ImageView
         android:id="@+id/loadinglogo"
-        android:layout_width="103dp"
-        android:layout_height="209dp"
-        android:layout_marginTop="104dp"
+        android:layout_width="86dp"
+        android:layout_height="190dp"
+        android:layout_marginTop="86dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.185"
+        app:layout_constraintHorizontal_bias="0.036"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/macslogo"
         app:srcCompat="@drawable/loading" />
+
+    <ImageView
+        android:id="@+id/macslogo"
+        android:layout_width="98dp"
+        android:layout_height="180dp"
+        android:layout_marginTop="70dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.003"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/macs" />
 
     <Button
         android:id="@+id/macs"
         style="@android:style/Widget.Holo.Button.Borderless"
         android:layout_width="157dp"
         android:layout_height="43dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="44dp"
         android:background="#7A117070"
         android:text="McDonald's"
         android:textAllCaps="false"
         android:textSize="15dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.708"
+        app:layout_constraintHorizontal_bias="0.769"
         app:layout_constraintStart_toStartOf="@id/question"
         app:layout_constraintTop_toBottomOf="@+id/question" />
 
@@ -64,13 +64,13 @@
         style="@android:style/Widget.Holo.Button.Borderless"
         android:layout_width="157dp"
         android:layout_height="43dp"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="36dp"
         android:background="#7A117070"
         android:text="more coming soon!"
         android:textAllCaps="false"
         android:textSize="12dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.037"
         app:layout_constraintStart_toStartOf="@id/macs"
         app:layout_constraintTop_toBottomOf="@+id/macs" />
 
