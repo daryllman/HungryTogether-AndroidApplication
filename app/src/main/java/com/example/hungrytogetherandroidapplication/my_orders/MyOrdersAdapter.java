@@ -46,6 +46,7 @@ public class MyOrdersAdapter extends RecyclerView.Adapter<MyOrdersAdapter.MyOrde
         holder.restaurantName.setText(item.getRestaurant_name());
         holder.captainName.setText(item.getCaptain_name());
         holder.dateTimeDeadline.setText(item.getDatetimedeadline());
+        holder.pickupLocation.setText(item.getPickup_location());
         holder.mealLabel.setText(item.getMeal_label());
         holder.mealCost.setText(item.getMeal_cost());
         holder.captainFee.setText(item.getCaptain_fee());
@@ -60,6 +61,23 @@ public class MyOrdersAdapter extends RecyclerView.Adapter<MyOrdersAdapter.MyOrde
                 dialog.show();
             }
         });
+        switch (item.getProgress_state()){
+            case "0":
+                holder.progressBarStatusImage.setImageResource(R.drawable.progress_bar_state0);
+                break;
+            case "1":
+                holder.progressBarStatusImage.setImageResource(R.drawable.progress_bar_state1);
+                break;
+            case "2":
+                holder.progressBarStatusImage.setImageResource(R.drawable.progress_bar_state2);
+                break;
+            case "3":
+                holder.progressBarStatusImage.setImageResource(R.drawable.progress_bar_state3);
+                break;
+            default:
+
+        }
+
 
     }
 
@@ -70,8 +88,9 @@ public class MyOrdersAdapter extends RecyclerView.Adapter<MyOrdersAdapter.MyOrde
 
     class MyOrdersViewHolder extends RecyclerView.ViewHolder{
 
-        TextView restaurantName, captainName, dateTimeDeadline, mealLabel, mealCost, captainFee, totalCost;
+        TextView restaurantName, captainName, dateTimeDeadline,pickupLocation, mealLabel, mealCost, captainFee, totalCost;
         Button payMyOrderButton;
+        ImageView progressBarStatusImage;
 
         public MyOrdersViewHolder(View itemView) {
             super(itemView);
@@ -84,6 +103,8 @@ public class MyOrdersAdapter extends RecyclerView.Adapter<MyOrdersAdapter.MyOrde
             captainFee = itemView.findViewById(R.id.captain_fee);
             totalCost = itemView.findViewById(R.id.total_cost);
             payMyOrderButton = itemView.findViewById(R.id.pay_my_order_button);
+            progressBarStatusImage = itemView.findViewById(R.id.progress_bar_status_image);
+            pickupLocation = itemView.findViewById(R.id.pick_up_location);
         }
     }
 }
