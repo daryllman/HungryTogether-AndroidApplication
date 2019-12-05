@@ -20,7 +20,7 @@
             android:fontFamily="@font/convergence"
             android:text="@string/title_open_orders"
             android:gravity="center"
-            android:textColor="#FFFFFF"
+            android:textColor="#18626A"
             android:textSize="50dp" />
 
 

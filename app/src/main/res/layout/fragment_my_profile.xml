@@ -6,70 +6,109 @@
     android:layout_height="match_parent"
     tools:context=".login_portal.AccountDetailsActivity">
 
+    <TextView
+        android:id="@+id/my_profile_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/title_my_profile"
+        android:layout_margin="10dp"
+        android:fontFamily="@font/convergence"
+        android:gravity="center"
+        android:textColor="#18626A"
+        android:textSize="50dp" />
+
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/test_photo"
+        android:layout_width="180dp"
+        android:layout_height="180dp"
+        android:layout_below="@+id/my_profile_label"
+        android:layout_margin="20dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/defaultaccountphoto"
+        app:civ_border_color="#FF000000"
+        app:civ_border_width="2dp" />
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
-        android:layout_centerHorizontal="true"
+        android:layout_alignTop="@+id/test_photo"
+        android:layout_toEndOf="@id/test_photo"
         android:orientation="vertical">
 
-<!--        <ImageView-->
-<!--            android:id="@+id/test_photo"-->
-<!--            android:layout_width="80dp"-->
-<!--            android:layout_height="80dp"-->
-<!--            android:layout_gravity="center"-->
-<!--            android:background="@drawable/defaultaccountphoto" />-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Welcome aboard\nFood Captain"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="18sp"/>
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/test_photo"
-            android:layout_gravity="center"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            android:src="@drawable/defaultaccountphoto"
-            app:civ_border_width="2dp"
-            app:civ_border_color="#FF000000" />
 
         <TextView
             android:id="@+id/test_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="Name: NAME HERE"
+            android:layout_toEndOf="@id/test_photo"
+            android:text="NAME HERE"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="18sp" />
-
-        <TextView
-            android:id="@+id/test_email"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="Email: EMAIL HERE"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="18sp" />
-
-        <TextView
-            android:id="@+id/test_id"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="ID: ID HERE"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="18sp" />
-
-        <TextView
-            android:id="@+id/test_firebaseUid"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="fbUid: UID HERE"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="18sp" />
-
-
 
     </LinearLayout>
+
+    <!--    <LinearLayout-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="50dp"-->
+<!--        android:layout_centerHorizontal="true"-->
+<!--        android:layout_below="@id/test_photo"-->
+<!--        android:orientation="vertical">-->
+
+
+    <TextView
+        android:id="@+id/email_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/test_photo"
+        android:layout_alignStart="@id/test_photo"
+        android:text="Currently logged in as: "
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/test_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_alignStart="@+id/email_label"
+        android:layout_below="@id/email_label"
+        android:text="EMAIL HERE"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/signout_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_below="@id/test_email"
+        android:layout_centerInParent="true"
+        android:text="Not you? Sign out here!"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/log_out"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sign out"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/signout_label"
+        android:layout_margin="20dp"
+        android:background="@color/colorPrimaryDark"
+        android:textColor="#fff"/>
+
 
 
 </RelativeLayout>
