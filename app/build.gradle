@@ -64,4 +64,7 @@ dependencies {
     // For FirebaseRecyclerAdapter
     implementation 'com.google.firebase:firebase-firestore:21.3.0'
     implementation 'com.firebaseui:firebase-ui-firestore:6.1.0'
+
+    //cricle imageview for profile page
+    implementation 'de.hdodenhof:circleimageview:3.0.1'
 }
