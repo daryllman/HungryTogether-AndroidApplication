@@ -17,6 +17,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.hungrytogetherandroidapplication.R;
@@ -131,6 +132,8 @@ public class FoodCaptainFragment extends Fragment {
         textViewTimeEnd = fragmentView.findViewById(R.id.textViewTimeEnd);
         buttonUpdateStatus = fragmentView.findViewById(R.id.buttonUpdateStatus);
 
+
+
         //-------------start by retrieving the relevant OpenOrder id----------------
         userRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
@@ -145,6 +148,7 @@ public class FoodCaptainFragment extends Fragment {
 
                         // Get firestore references
                         DocumentReference openOrderRef = db.collection("OpenOrders").document(captain_orders);
+                        //setUpRecyclerView("evangefctesting");
 //                        CollectionReference sailorOrdersRef = db.collection("OpenOrders").document(captain_orders).collection("SailorOrders");
 
                         // Inflate the fragment layout
@@ -349,11 +353,18 @@ public class FoodCaptainFragment extends Fragment {
 
 //    String captorders = null;
 
+
+
     @Override
     public void onStart() {
         super.onStart();
 
-        //-------------start by retrieving the relevant OpenOrder id----------------
+
+//        Log.d("setUpRecyclerView", "onStart: setting up recyclerview");
+
+//        Log.d("aye", "captain orders: "+captain_orders);
+
+//-------------start by retrieving the relevant OpenOrder id----------------
         userRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
@@ -362,7 +373,15 @@ public class FoodCaptainFragment extends Fragment {
                     if (document.exists()) {
                         // Store fc's OpenOrder id in String captain_orders
                         captain_orders = document.getString("captain_orders");
-//                        Log.d("recycler", "captain_orders: "+captain_orders);
+                        if(captain_orders!= null){
+                            setUpRecyclerView(""+captain_orders);
+                            if (adapter != null) {
+                                adapter.startListening(); // only listens when app is in foreground
+                            }
+                        }else{
+                            Toast.makeText(thisContext, "wrong", Toast.LENGTH_SHORT).show();
+                        }
+                        //                        Log.d("recycler", "captain_orders: "+captain_orders);
 //
 //                        // Get firestore reference
 //                        CollectionReference sailorOrdersRef = db.collection("OpenOrders").document(captain_orders).collection("SailorOrders");
@@ -370,7 +389,7 @@ public class FoodCaptainFragment extends Fragment {
 //                        Log.d("recycler", "collection reference path (sailorordersref): "+sailorOrdersRef.getPath());
 
                         // set up Recyclerview
-                        setUpRecyclerView("evangefctesting");
+
 //                        adapter.notifyDataSetChanged();
                     } else {
                         Log.d("success", "No such document");
@@ -381,14 +400,7 @@ public class FoodCaptainFragment extends Fragment {
             }
         });
 
-//        Log.d("setUpRecyclerView", "onStart: setting up recyclerview");
 
-//        Log.d("aye", "captain orders: "+captain_orders);
-//        setUpRecyclerView("evangefctesting");
-
-        if (adapter != null) {
-            adapter.startListening(); // only listens when app is in foreground
-        }
     }
 
     @Override
