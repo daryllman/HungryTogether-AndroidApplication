@@ -3,6 +3,8 @@ package com.example.hungrytogetherandroidapplication.my_orders;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -55,9 +57,10 @@ public class MyOrdersAdapter extends RecyclerView.Adapter<MyOrdersAdapter.MyOrde
             @Override
             public void onClick(View view) {
                 AlertDialog.Builder mBuilder = new AlertDialog.Builder(mActivity);
-                View mView = mActivity.getLayoutInflater().inflate(R.layout.sample_dialog, null);
+                View mView = mActivity.getLayoutInflater().inflate(R.layout.payment_dialog, null);
                 mBuilder.setView(mView);
                 final AlertDialog dialog = mBuilder.create();
+                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
                 dialog.show();
             }
         });
