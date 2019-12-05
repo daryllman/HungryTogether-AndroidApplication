@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.hungrytogetherandroidapplication.R;
+import com.example.hungrytogetherandroidapplication.main_activity_portal.MainActivity;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -106,8 +107,10 @@ public class MainLogin extends AppCompatActivity {
                             Log.d("Sign in with credential", "signInWithCredential:success");
                             FirebaseUser user = mAuth.getCurrentUser();
                             Toast.makeText(MainLogin.this, "Welcome!", Toast.LENGTH_LONG).show();
+                            //______________________________________________________________________________________________________
+                            //______________________________________________________________________________________________________
                             // If Sign In is SUCCESSFUL, go to the next page (authenticated screen) - which is my AccountDetails UI
-                            startActivity(new Intent(MainLogin.this, AccountDetailsActivity.class)); // if already signed in, jump straight to next page.
+                            startActivity(new Intent(MainLogin.this, MainActivity.class)); // if already signed in, jump straight to next page.
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.d("Sign in with credential", "signInWithCredential:failure", task.getException());
