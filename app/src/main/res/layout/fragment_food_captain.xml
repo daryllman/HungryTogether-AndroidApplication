@@ -126,8 +126,8 @@
 
         <ImageView
             android:id="@+id/imageViewFoodCaptProgress"
-            android:layout_width="266dp"
-            android:layout_height="80dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_below="@+id/restaurant_image"
             android:layout_margin="5dp"
