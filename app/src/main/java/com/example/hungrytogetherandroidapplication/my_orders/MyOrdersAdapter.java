@@ -3,10 +3,14 @@ package com.example.hungrytogetherandroidapplication.my_orders;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -46,6 +50,7 @@ public class MyOrdersAdapter extends RecyclerView.Adapter<MyOrdersAdapter.MyOrde
         holder.restaurantName.setText(item.getRestaurant_name());
         holder.captainName.setText(item.getCaptain_name());
         holder.dateTimeDeadline.setText(item.getDatetimedeadline());
+        holder.pickupLocation.setText(item.getPickup_location());
         holder.mealLabel.setText(item.getMeal_label());
         holder.mealCost.setText(item.getMeal_cost());
         holder.captainFee.setText(item.getCaptain_fee());
@@ -54,12 +59,48 @@ public class MyOrdersAdapter extends RecyclerView.Adapter<MyOrdersAdapter.MyOrde
             @Override
             public void onClick(View view) {
                 AlertDialog.Builder mBuilder = new AlertDialog.Builder(mActivity);
-                View mView = mActivity.getLayoutInflater().inflate(R.layout.sample_dialog, null);
+                View mView = mActivity.getLayoutInflater().inflate(R.layout.payment_dialog, null);
+
+                // Set total price to text
+                TextView totalPriceToPay = mView.findViewById(R.id.total_price_to_pay);
+                totalPriceToPay.setText("$" + item.getTotal_cost());
+
+                // add OnClick listener to payment button
+                ImageButton paylahButton = mView.findViewById(R.id.paylah_image_button);
+                paylahButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        String urlString = mActivity.getString(R.string.mcspicy_url); // just a mock set up: predetermined paylah link for mcspicy $7.4
+                        Uri uri = Uri.parse(urlString); // missing 'http://' will cause crashed
+                        Intent urlIntent = new Intent(Intent.ACTION_VIEW, uri);
+                        mActivity.startActivity(urlIntent);
+                    }
+                });
+
                 mBuilder.setView(mView);
                 final AlertDialog dialog = mBuilder.create();
+                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
                 dialog.show();
+
             }
         });
+        switch (item.getProgress_state()){
+            case "0":
+                holder.progressBarStatusImage.setImageResource(R.drawable.progress_bar_state0);
+                break;
+            case "1":
+                holder.progressBarStatusImage.setImageResource(R.drawable.progress_bar_state1);
+                break;
+            case "2":
+                holder.progressBarStatusImage.setImageResource(R.drawable.progress_bar_state2);
+                break;
+            case "3":
+                holder.progressBarStatusImage.setImageResource(R.drawable.progress_bar_state3);
+                break;
+            default:
+
+        }
+
 
     }
 
@@ -70,8 +111,9 @@ public class MyOrdersAdapter extends RecyclerView.Adapter<MyOrdersAdapter.MyOrde
 
     class MyOrdersViewHolder extends RecyclerView.ViewHolder{
 
-        TextView restaurantName, captainName, dateTimeDeadline, mealLabel, mealCost, captainFee, totalCost;
+        TextView restaurantName, captainName, dateTimeDeadline,pickupLocation, mealLabel, mealCost, captainFee, totalCost;
         Button payMyOrderButton;
+        ImageView progressBarStatusImage;
 
         public MyOrdersViewHolder(View itemView) {
             super(itemView);
@@ -84,6 +126,8 @@ public class MyOrdersAdapter extends RecyclerView.Adapter<MyOrdersAdapter.MyOrde
             captainFee = itemView.findViewById(R.id.captain_fee);
             totalCost = itemView.findViewById(R.id.total_cost);
             payMyOrderButton = itemView.findViewById(R.id.pay_my_order_button);
+            progressBarStatusImage = itemView.findViewById(R.id.progress_bar_status_image);
+            pickupLocation = itemView.findViewById(R.id.pick_up_location);
         }
     }
 }

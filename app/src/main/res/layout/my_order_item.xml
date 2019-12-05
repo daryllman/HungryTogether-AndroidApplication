@@ -69,12 +69,29 @@
                 android:layout_toRightOf="@+id/datetimedeadline_label"
                 android:layout_marginVertical="5dp"/>
 
+            <!-- Pick Up Location -->
+            <TextView
+                android:id="@+id/pick_up_location_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/datetimedeadline_label"
+                android:text="Pick up at: "
+                android:layout_marginVertical="5dp"/>
+            <TextView
+                android:id="@+id/pick_up_location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="pick_up_location"
+                android:layout_alignBaseline="@+id/pick_up_location_label"
+                android:layout_toRightOf="@+id/pick_up_location_label"
+                android:layout_marginVertical="5dp"/>
+
             <!-- MEAL COST-->
             <TextView
                 android:id="@+id/meal_cost_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/datetimedeadline_label"
+                android:layout_below="@+id/pick_up_location_label"
                 android:text="Meal cost: "
                 android:layout_marginVertical="5dp"/>
             <TextView
@@ -121,7 +138,7 @@
                 android:layout_marginVertical="5dp"/>
 
             <ImageView
-                android:id="@+id/progress_bar_statuses"
+                android:id="@+id/progress_bar_status_image"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/total_cost_label"
@@ -134,7 +151,7 @@
                 android:layout_height="wrap_content"
                 android:text="Please wait patiently for the Food Captain to process your order:)"
                 android:layout_marginTop="-90dp"
-                android:layout_below="@+id/progress_bar_statuses"
+                android:layout_below="@+id/progress_bar_status_image"
 
                 android:layout_marginVertical="3dp"/>
 

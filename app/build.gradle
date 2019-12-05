@@ -6,7 +6,7 @@ android {
     buildToolsVersion "29.0.2"
     defaultConfig {
         applicationId "com.example.hungrytogetherandroidapplication"
-        minSdkVersion 21
+        minSdkVersion 24
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
@@ -17,6 +17,10 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+    }
+    compileOptions {
+        targetCompatibility = 1.8
+        sourceCompatibility = 1.8
     }
 }
 
@@ -64,4 +68,8 @@ dependencies {
     // For FirebaseRecyclerAdapter
     implementation 'com.google.firebase:firebase-firestore:21.3.0'
     implementation 'com.firebaseui:firebase-ui-firestore:6.1.0'
+
+    //cricle imageview for profile page
+    implementation 'de.hdodenhof:circleimageview:3.0.1'
+
 }
