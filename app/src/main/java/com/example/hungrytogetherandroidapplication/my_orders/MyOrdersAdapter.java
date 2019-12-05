@@ -60,16 +60,23 @@ public class MyOrdersAdapter extends RecyclerView.Adapter<MyOrdersAdapter.MyOrde
             public void onClick(View view) {
                 AlertDialog.Builder mBuilder = new AlertDialog.Builder(mActivity);
                 View mView = mActivity.getLayoutInflater().inflate(R.layout.payment_dialog, null);
+
+                // Set total price to text
+                TextView totalPriceToPay = mView.findViewById(R.id.total_price_to_pay);
+                totalPriceToPay.setText("$" + item.getTotal_cost());
+
+                // add OnClick listener to payment button
                 ImageButton paylahButton = mView.findViewById(R.id.paylah_image_button);
                 paylahButton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        String urlString = mActivity.getString(R.string.mcspicy_url);
+                        String urlString = mActivity.getString(R.string.mcspicy_url); // just a mock set up: predetermined paylah link for mcspicy $7.4
                         Uri uri = Uri.parse(urlString); // missing 'http://' will cause crashed
                         Intent urlIntent = new Intent(Intent.ACTION_VIEW, uri);
                         mActivity.startActivity(urlIntent);
                     }
                 });
+
                 mBuilder.setView(mView);
                 final AlertDialog dialog = mBuilder.create();
                 dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
