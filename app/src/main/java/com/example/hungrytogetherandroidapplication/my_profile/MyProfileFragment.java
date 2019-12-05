@@ -41,7 +41,7 @@ public class MyProfileFragment extends Fragment {
     TextView emailField;
     TextView idField;
     ImageView photoField;
-    TextView fbUid;
+    Button sign_out;
 
 
     public MyProfileFragment() {
@@ -60,7 +60,6 @@ public class MyProfileFragment extends Fragment {
         emailField = fragmentView.findViewById(R.id.test_email);
         idField = fragmentView.findViewById(R.id.test_id);
         photoField = fragmentView.findViewById(R.id.test_photo);
-        fbUid = fragmentView.findViewById(R.id.test_firebaseUid);
 
 
 
@@ -90,7 +89,6 @@ public class MyProfileFragment extends Fragment {
             nameField.setText("Name: "+ personName);
             emailField.setText("Email: "+ personEmail);
             idField.setText("ID: "+ personId);
-            fbUid.setText("fb UID:" + user.getUid());
 
 
             // Glide is a module to load and cache images (read the build.gradle file for more info that i added)
@@ -98,11 +96,6 @@ public class MyProfileFragment extends Fragment {
                     .with(this)
                     .load(personPhotoURL).into(photoField); //load photo from url(personPhotoURL) into the photoField
         }
-
-
-
-
-
         return fragmentView;
     }
 
