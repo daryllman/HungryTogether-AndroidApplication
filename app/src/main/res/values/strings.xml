@@ -13,5 +13,6 @@
     <string name="McSpicy">McSpicy</string>
     <string name="Double_McSpicy">Double McSpicy</string>
     <string name="mcspicy_url">https://www.dbs.com.sg/personal/mobile/paylink/index.html?tranRef=wESoASZiO3</string>
+    <string name = "slots_available">slots available...</string>
 
 </resources>
