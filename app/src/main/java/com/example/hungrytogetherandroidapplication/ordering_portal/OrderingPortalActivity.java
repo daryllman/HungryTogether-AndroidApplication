@@ -84,21 +84,23 @@ public class OrderingPortalActivity extends AppCompatActivity {
                 //find the radio button by returned id
 
                 int selectedId = radioFoodGroup.getCheckedRadioButtonId();
+                Log.d("evange", "onClick: "+selectedId);
+                Toast.makeText(OrderingPortalActivity.this, "selected id is "+selectedId, Toast.LENGTH_SHORT).show();
                 String meal_price="0";
                 switch (selectedId) {
-                    case 0:
+                    case 2131296495:
                         meal_price = "6.0";
                         break;
-                    case 1:
+                    case 2131296496:
                         meal_price = "6.5";
                         break;
-                    case 2:
+                    case 2131296497:
                         meal_price = "7.0";
                         break;
-                    case 3:
+                    case 2131296498:
                         meal_price = "7.5";
                         break;
-                    case 4:
+                    case 2131296499:
                         meal_price = "8.0";
                         break;
                 }
