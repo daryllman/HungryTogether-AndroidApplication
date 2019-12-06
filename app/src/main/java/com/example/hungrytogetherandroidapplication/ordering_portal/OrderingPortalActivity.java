@@ -88,20 +88,20 @@ public class OrderingPortalActivity extends AppCompatActivity {
                 Toast.makeText(OrderingPortalActivity.this, "selected id is "+selectedId, Toast.LENGTH_SHORT).show();
                 String meal_price="0";
                 switch (selectedId) {
-                    case 2131296495:
-                        meal_price = "6.0";
-                        break;
-                    case 2131296496:
-                        meal_price = "6.5";
-                        break;
-                    case 2131296497:
+                    case 2131296495:    //bigmac
                         meal_price = "7.0";
                         break;
-                    case 2131296498:
-                        meal_price = "7.5";
+                    case 2131296496:    //mcspicy
+                        meal_price = "5.5";
                         break;
-                    case 2131296499:
-                        meal_price = "8.0";
+                    case 2131296497:    //mcchicken
+                        meal_price = "2.5";
+                        break;
+                    case 2131296498:    //double mcspicy
+                        meal_price = "6.5";
+                        break;
+                    case 2131296499:    //fillet o fish
+                        meal_price = "2.0";
                         break;
                 }
 
@@ -110,21 +110,6 @@ public class OrderingPortalActivity extends AppCompatActivity {
                 String food = (String) radioFoodButton.getText();   //obtained meal_label!!
                 Log.d("evange", "returned meal_label: "+food);
 
-
-
-                //sending up to firebase
-//                final String openorderid = "pdQwKDYLtmCoO1PK54MF";// open order id currently hardcoded for testing
-//                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-//                final String userId=user.getUid();
-//                MyOrder my_enrolled_order = new MyOrder(food, userId , "10.50");
-//                db.document("ABC/DEF")
-//                        .set(my_enrolled_order)
-//                        .addOnSuccessListener(new OnSuccessListener<Void>() {
-//                            @Override
-//                            public void onSuccess(Void aVoid) { Log.d("THURSDAY", "UserBase/" + openorderid + "/OpenOrderCol/" + "hwllo"); }
-//                        });
-//
-//                Toast.makeText(OrderingPortalActivity.this, "Write Attempt", Toast.LENGTH_SHORT).show();
 
                 Map<String, Object> order = new HashMap<>();
                 order.put("meal_cost", meal_price);
@@ -146,25 +131,6 @@ public class OrderingPortalActivity extends AppCompatActivity {
                             }
 
                         });
-//
-//                Toast.makeText(OrderingPortalActivity.this, "Write Attempt", Toast.LENGTH_SHORT).show();
-//
-//
-//                db.collection("OpenOrder")
-//                        .get()
-//                        .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-//                            @Override
-//                            public void onComplete(@NonNull Task<QuerySnapshot> task) {
-//                                if (task.isSuccessful()) {
-//                                    for (QueryDocumentSnapshot document : task.getResult()) {
-//                                        Log.d("FIRESTORE", document.getId() + " => " + document.getData());
-//                                        Toast.makeText(OrderingPortalActivity.this, document.getData().toString(), Toast.LENGTH_SHORT).show();
-//                                    }
-//                                } else {
-//                                    Log.d("FIRESTORE", "Error getting documents: ", task.getException());
-//                                }
-//                            }
-//                        });
 
                 userRef.update("sailor_orders", FieldValue.arrayUnion(orderIdString));
 

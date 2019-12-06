@@ -20,6 +20,15 @@
             android:layout_height="400dp"
             android:layout_marginTop="10dp"/>
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toStartOf="@+id/pic1"
+            android:layout_alignTop="@+id/pic1"
+            android:layout_marginTop="40dp"
+            android:layout_marginRight="20dp"
+            android:text="$7.0"/>
+
         <ImageView
             android:id="@+id/pic1"
             android:src="@drawable/bigmac"
@@ -28,6 +37,15 @@
             android:layout_height="100dp"
             android:layout_below="@id/pic"
             android:layout_toEndOf="@id/radioFood"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toStartOf="@+id/pic2"
+            android:layout_alignTop="@+id/pic2"
+            android:layout_marginTop="40dp"
+            android:layout_marginRight="20dp"
+            android:text="$5.5"/>
 
         <ImageView
             android:id="@+id/pic2"
@@ -38,6 +56,15 @@
             android:layout_below="@id/pic1"
             android:layout_toEndOf="@id/radioFood"/>
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toStartOf="@+id/pic3"
+            android:layout_alignTop="@+id/pic3"
+            android:layout_marginTop="40dp"
+            android:layout_marginRight="20dp"
+            android:text="$2.5"/>
+
         <ImageView
             android:id="@+id/pic3"
             android:src="@drawable/mcchicken"
@@ -47,6 +74,15 @@
             android:layout_below="@id/pic2"
             android:layout_toEndOf="@id/radioFood"/>
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toStartOf="@+id/pic4"
+            android:layout_alignTop="@+id/pic4"
+            android:layout_marginTop="40dp"
+            android:layout_marginRight="20dp"
+            android:text="$6.5"/>
+
         <ImageView
             android:id="@+id/pic4"
             android:src="@drawable/doublemcspicy"
@@ -55,6 +91,15 @@
             android:layout_height="100dp"
             android:layout_below="@id/pic3"
             android:layout_toEndOf="@id/radioFood"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toStartOf="@+id/pic5"
+            android:layout_alignTop="@+id/pic5"
+            android:layout_marginTop="40dp"
+            android:layout_marginRight="20dp"
+            android:text="$2.0"/>
 
         <ImageView
             android:id="@+id/pic5"
