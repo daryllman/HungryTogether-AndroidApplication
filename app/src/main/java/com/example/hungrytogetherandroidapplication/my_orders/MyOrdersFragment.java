@@ -1,6 +1,7 @@
 package com.example.hungrytogetherandroidapplication.my_orders;
 
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 
@@ -14,10 +15,14 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.hungrytogetherandroidapplication.R;
+import com.example.hungrytogetherandroidapplication.new_order_portal.NewOrderActivity;
 import com.example.hungrytogetherandroidapplication.open_orders.OpenOrderItem;
 import com.example.hungrytogetherandroidapplication.open_orders.OpenOrdersAdapter;
+import com.example.hungrytogetherandroidapplication.ordering_portal.OrderingPortalActivity;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -62,6 +67,19 @@ public class MyOrdersFragment extends Fragment {
         ViewGroup viewGroupContainer = container;
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_my_orders, container, false);
+
+        Button createNewOrderButton = view.findViewById(R.id.create_new_order_button);
+        createNewOrderButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //Toast.makeText(getContext(), "button clicked", Toast.LENGTH_SHORT).show();
+
+                // To pass order_id to OrderingPortalActivity --- so the activity knows which order is the click referring to.
+                Intent orderingPortalIntent = new Intent(getActivity(), NewOrderActivity.class);
+                Toast.makeText(getContext(),"create your order!", Toast.LENGTH_SHORT).show(); //to be removed
+                startActivity(orderingPortalIntent);
+            }
+        });
 
         return view;
 
