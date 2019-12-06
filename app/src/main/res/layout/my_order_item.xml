@@ -26,6 +26,14 @@
                 android:layout_alignParentEnd="true"
                 android:text="Pay!"/>
 
+            <!-- RESTAURANT Label-->
+            <TextView
+                android:id="@+id/restaurant_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ordered from: "
+                android:layout_marginVertical="5dp"/>
+
 
             <!-- RESTAURANT NAME-->
             <TextView
@@ -33,6 +41,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="restaurant_name"
+                android:layout_toRightOf="@id/restaurant_label"
                 android:layout_marginVertical="5dp"/>
 
             <!-- MEAL LABEL-->
