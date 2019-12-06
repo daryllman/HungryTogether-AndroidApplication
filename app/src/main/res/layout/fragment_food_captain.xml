@@ -15,10 +15,13 @@
             android:id="@+id/FoodCaptHeader"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Food Captain"
-            android:textSize="40dp"
-            android:textColor="#FFFFFF"
-            android:layout_marginStart="10dp"/>
+            android:text="@string/title_food_captain"
+            android:layout_margin="10dp"
+            android:fontFamily="@font/convergence"
+            android:gravity="center"
+            android:textColor="#18626A"
+            android:textSize="50dp" />
+
 
         <!--	<Button-->
         <!--	android:id="@+id/buttonViewFoodCaptDetails"-->
@@ -35,8 +38,7 @@
             android:layout_gravity="start"
             android:layout_below="@+id/FoodCaptHeader"
             android:layout_marginStart="10dp"
-            android:textSize="20sp"
-            android:text="Restaurant name here"/>
+            android:textSize="20sp"/>
 
         <ImageView
             android:id="@+id/restaurant_image"
@@ -61,8 +63,7 @@
             android:layout_height="wrap_content"
             android:layout_toEndOf="@+id/textViewCaptfee_label"
             android:layout_below="@+id/textViewRestaurant"
-            android:textSize="20sp"
-            android:text="$$$"/>
+            android:textSize="20sp"/>
 
         <TextView
             android:id="@+id/textViewPickUpPt_label"
@@ -81,8 +82,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/textViewCaptfee_label"
             android:layout_toEndOf="@id/textViewPickUpPt_label"
-            android:textSize="20sp"
-            android:text="Blk 59"/>
+            android:textSize="20sp"/>
 
         <TextView
             android:id="@+id/textViewSlotsLeft_label"
@@ -101,8 +101,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/textViewPickUpPt_label"
             android:layout_toEndOf="@id/textViewSlotsLeft_label"
-            android:textSize="20sp"
-            android:text="999"/>
+            android:textSize="20sp"/>
 
         <TextView
             android:id="@+id/textViewTimeEnd_label"
