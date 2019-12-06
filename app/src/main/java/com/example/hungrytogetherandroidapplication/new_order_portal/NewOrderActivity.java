@@ -4,6 +4,7 @@ package com.example.hungrytogetherandroidapplication.new_order_portal;
 import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -16,9 +17,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.DialogFragment;
 
 import com.example.hungrytogetherandroidapplication.R;
+import com.example.hungrytogetherandroidapplication.login_portal.AccountDetailsActivity;
 import com.example.hungrytogetherandroidapplication.main_activity_portal.MainActivity;
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
@@ -50,7 +57,7 @@ public class NewOrderActivity extends AppCompatActivity implements TimePickerDia
         }
 
         else {
-            select_time_limit_button.setText(hourOfDay + " : " + minute);
+            select_time_limit_button.setText(hourOfDay + ":" + minute);
             get_time_choice = select_time_limit_button.getText().toString();
         }
 
@@ -60,6 +67,12 @@ public class NewOrderActivity extends AppCompatActivity implements TimePickerDia
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
+
+        GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(NewOrderActivity.this);
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String personName = acct.getDisplayName();
+        String captainId = user.getUid();
+
 
         //file that stores layout
         setContentView(R.layout.activity_new_order);
@@ -133,7 +146,7 @@ public class NewOrderActivity extends AppCompatActivity implements TimePickerDia
 
                 if (get_restaurant_choice == null || get_location_choice == null ||
                         get_time_choice == null || get_slots_choice == null) {
-                    Toast.makeText(NewOrderActivity.this, "please fill everything up first!", Toast.LENGTH_LONG).show();
+                    //Toast.makeText(NewOrderActivity.this, "please fill everything up first!", Toast.LENGTH_LONG).show();
 
                 } else {
                     Toast.makeText(NewOrderActivity.this, "order confirmed", Toast.LENGTH_LONG).show();
@@ -143,35 +156,75 @@ public class NewOrderActivity extends AppCompatActivity implements TimePickerDia
                     Log.i("glenda", get_slots_choice);
                 }
 
+                //String urlString = getString(R.string.macdonalds_background_url); // just a mock set up: predetermined paylah link for mcspicy $7.4
+                //Uri uri = Uri.parse("https://firebasestorage.googleapis.com/v0/b/hungrytogetherapp.appspot.com/o/restaurantImages%2FMacdonald's%2Fmacdonalds_background.jpg?alt=media&token=220ba19d-7658-4deb-a8f6-49f3aeb12f79"); // missing 'http://' will cause crashed
+
+                String macdonaldURL = "https://tinyurl.com/s2bzzqf";
+
                 Intent mainActivityIntent = new Intent(v.getContext(), MainActivity.class);
                 startActivity(mainActivityIntent);
 
                 Map<String, Object> openOrder = new HashMap<>();
-                openOrder.put("captain_id", "");
-                openOrder.put("captain_name", "Glenda");
+                openOrder.put("captain_id", captainId);
+                openOrder.put("captain_name", personName);
                 openOrder.put("restaurant name", "MacDonalds");
-                openOrder.put("restaurant_image", "");
+                openOrder.put("restaurant_image", macdonaldURL);
                 openOrder.put("datetimedeadline", get_time_choice);
                 openOrder.put("pickup_location", get_location_choice);
                 openOrder.put("captain_fee", "0.50");
-                openOrder.put("slots_left", "2");
+                openOrder.put("slots_left", "4");
                 openOrder.put("accepting_orders", "true");
-                openOrder.put("progress_state", "1");
+                openOrder.put("progress_state", "0");
 
-                db.collection("OpenOrders").document("Test")
-                        .set(openOrder)
-                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+//                db.collection("OpenOrders").document()
+//                        .set(openOrder)
+//                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+//                            @Override
+//                            public void onSuccess(Void aVoid) {
+//                                Log.d("Test Pass", "DocumentSnapshot successfully written!");
+//                            }
+//                        })
+//                        .addOnFailureListener(new OnFailureListener() {
+//                            @Override
+//                            public void onFailure(@NonNull Exception e) {
+//                                Log.w("Test Fail", "Error writing document", e);
+//                            }
+//                        });
+                db.collection("OpenOrders")
+                        .add(openOrder)
+                        .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                             @Override
-                            public void onSuccess(Void aVoid) {
-                                Log.d("Test Pass", "DocumentSnapshot successfully written!");
+                            public void onSuccess(DocumentReference documentReference) {
+                                //Log.d(TAG, "DocumentSnapshot written with ID: " + documentReference.getId());
+                                //String docRefId = documentReference.getId();
+
+                                DocumentReference mycaptainordersRef = db.collection("UserBase").document(captainId);
+                                mycaptainordersRef
+                                        .update("captain_orders", documentReference.getId())
+                                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                            @Override
+                                            public void onSuccess(Void aVoid) {
+                                                //Log.d(TAG, "DocumentSnapshot successfully updated!");
+                                            }
+                                        })
+                                        .addOnFailureListener(new OnFailureListener() {
+                                            @Override
+                                            public void onFailure(@NonNull Exception e) {
+                                                //Log.w(TAG, "Error updating document", e);
+                                            }
+                                        });
+
                             }
                         })
                         .addOnFailureListener(new OnFailureListener() {
                             @Override
                             public void onFailure(@NonNull Exception e) {
-                                Log.w("Test Fail", "Error writing document", e);
+                                //Log.w(TAG, "Error adding document", e);
                             }
                         });
+
+
+
             }
         });
 
