@@ -11,10 +11,18 @@ import android.widget.Button;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.DialogFragment;
 
 import com.example.hungrytogetherandroidapplication.R;
+import com.example.hungrytogetherandroidapplication.main_activity_portal.MainActivity;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
 
 
 public class NewOrderActivity extends AppCompatActivity implements TimePickerDialog.OnTimeSetListener {
@@ -31,6 +39,7 @@ public class NewOrderActivity extends AppCompatActivity implements TimePickerDia
     String get_location_choice;
     String get_time_choice;
     String get_slots_choice;
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
 
 
     @Override
@@ -123,18 +132,46 @@ public class NewOrderActivity extends AppCompatActivity implements TimePickerDia
             public void onClick(View v) {
 
                 if (get_restaurant_choice == null || get_location_choice == null ||
-                        get_time_choice == null || get_slots_choice == null){
+                        get_time_choice == null || get_slots_choice == null) {
                     Toast.makeText(NewOrderActivity.this, "please fill everything up first!", Toast.LENGTH_LONG).show();
 
-                }
-
-                else {
+                } else {
                     Toast.makeText(NewOrderActivity.this, "order confirmed", Toast.LENGTH_LONG).show();
                     Log.i("glenda", get_restaurant_choice);
                     Log.i("glenda", get_location_choice);
                     Log.i("glenda", get_time_choice);
                     Log.i("glenda", get_slots_choice);
                 }
+
+                Intent mainActivityIntent = new Intent(v.getContext(), MainActivity.class);
+                startActivity(mainActivityIntent);
+
+                Map<String, Object> openOrder = new HashMap<>();
+                openOrder.put("captain_id", "");
+                openOrder.put("captain_name", "Glenda");
+                openOrder.put("restaurant name", "MacDonalds");
+                openOrder.put("restaurant_image", "");
+                openOrder.put("datetimedeadline", get_time_choice);
+                openOrder.put("pickup_location", get_location_choice);
+                openOrder.put("captain_fee", "0.50");
+                openOrder.put("slots_left", "2");
+                openOrder.put("accepting_orders", "true");
+                openOrder.put("progress_state", "1");
+
+                db.collection("OpenOrders").document("Test")
+                        .set(openOrder)
+                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void aVoid) {
+                                Log.d("Test Pass", "DocumentSnapshot successfully written!");
+                            }
+                        })
+                        .addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                Log.w("Test Fail", "Error writing document", e);
+                            }
+                        });
             }
         });
 

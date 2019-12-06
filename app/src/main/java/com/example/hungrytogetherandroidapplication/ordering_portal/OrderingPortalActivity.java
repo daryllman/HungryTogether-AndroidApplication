@@ -55,6 +55,7 @@ public class OrderingPortalActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ordering_portal);
 
+
         // Retrieve the OpenOrder doc id that I'm writing into
         Intent fromOpenOrdersIntent=getIntent();
         final String orderIdString= fromOpenOrdersIntent.getStringExtra("order_id");
@@ -66,36 +67,6 @@ public class OrderingPortalActivity extends AppCompatActivity {
         final DocumentReference openOrderRef = db.collection("OpenOrders").document(orderIdString);
         final DocumentReference mySailorOrderRef = db.collection("OpenOrders").document(orderIdString).collection("SailorOrders").document(fbUid);
 
-
-        // Obtain captain fee for the OpenOrder
-//        openOrderRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-//            @Override
-//            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-//
-//                if (task.isSuccessful()) {
-//                    DocumentSnapshot document = task.getResult();
-//                    if (document.exists()) {
-//                        // Store fc's OpenOrder id in String captain_orders
-//                        captain_orders = document.getString("captain_orders");
-//                        Log.d("firestore", "retrieved captain_orders as: " + captain_orders);
-//
-//                        // Get firestore references
-////                        DocumentReference openOrderRef = db.collection("OpenOrders").document(captain_orders);
-//                        //setUpRecyclerView("evangefctesting");
-////                        CollectionReference sailorOrdersRef = db.collection("OpenOrders").document(captain_orders).collection("SailorOrders");
-//
-//                        // Inflate the fragment layout
-//                        inflateLayout(captain_orders);
-//
-//
-//                    } else {
-//                        Log.d("success", "No such document");
-//                    }
-//                } else {
-//                    Log.d("fail", "get failed with ", task.getException());
-//                }
-//            }
-//        });
 
 
         //button to complete your order
@@ -171,7 +142,27 @@ public class OrderingPortalActivity extends AppCompatActivity {
                             public void onFailure(@NonNull Exception e) {
                                 Log.w("evange", "Error writing document", e);
                             }
+
                         });
+//
+//                Toast.makeText(OrderingPortalActivity.this, "Write Attempt", Toast.LENGTH_SHORT).show();
+//
+//
+//                db.collection("OpenOrder")
+//                        .get()
+//                        .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+//                            @Override
+//                            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+//                                if (task.isSuccessful()) {
+//                                    for (QueryDocumentSnapshot document : task.getResult()) {
+//                                        Log.d("FIRESTORE", document.getId() + " => " + document.getData());
+//                                        Toast.makeText(OrderingPortalActivity.this, document.getData().toString(), Toast.LENGTH_SHORT).show();
+//                                    }
+//                                } else {
+//                                    Log.d("FIRESTORE", "Error getting documents: ", task.getException());
+//                                }
+//                            }
+//                        });
 
                 userRef.update("sailor_orders", FieldValue.arrayUnion(orderIdString));
 
