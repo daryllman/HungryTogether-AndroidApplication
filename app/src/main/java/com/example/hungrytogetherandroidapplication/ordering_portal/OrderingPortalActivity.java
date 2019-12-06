@@ -21,7 +21,10 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
@@ -45,6 +48,8 @@ public class OrderingPortalActivity extends AppCompatActivity {
 
     FirebaseFirestore db = FirebaseFirestore.getInstance();
 
+    private DocumentReference userRef = db.collection("UserBase").document(fbUid);
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,26 +57,43 @@ public class OrderingPortalActivity extends AppCompatActivity {
 
         // Retrieve the OpenOrder doc id that I'm writing into
         Intent fromOpenOrdersIntent=getIntent();
-        String orderIdString= fromOpenOrdersIntent.getStringExtra("order_id");
+        final String orderIdString= fromOpenOrdersIntent.getStringExtra("order_id");
         Log.d("Ordering portal", "selected order id: "+orderIdString);
         Log.d("Ordering portal", "my fbuid: "+fbUid);
         Log.d("Ordering portal", "sailor name: "+sailor_name);
 
         // Obtain mySailorOrderRef, the docref to where I'm supposed to write to (save my new sailor order here)
+        final DocumentReference openOrderRef = db.collection("OpenOrders").document(orderIdString);
         final DocumentReference mySailorOrderRef = db.collection("OpenOrders").document(orderIdString).collection("SailorOrders").document(fbUid);
 
 
-        // this is your activity.
-        // the layout is activity_ordering_portal
-
-        //button to get back to main activity
-//        Button backToMainActivityButton= (Button) findViewById(R.id.back_to_mainActivity_button);
-//        backToMainActivityButton.setOnClickListener(new View.OnClickListener() {
+        // Obtain captain fee for the OpenOrder
+//        openOrderRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
 //            @Override
-//            public void onClick(View view) {
-//                // code to send final submissions to firestore
-//                Intent mainActivityIntent = new Intent(view.getContext(), MainActivity.class);
-//                startActivity(mainActivityIntent);
+//            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+//
+//                if (task.isSuccessful()) {
+//                    DocumentSnapshot document = task.getResult();
+//                    if (document.exists()) {
+//                        // Store fc's OpenOrder id in String captain_orders
+//                        captain_orders = document.getString("captain_orders");
+//                        Log.d("firestore", "retrieved captain_orders as: " + captain_orders);
+//
+//                        // Get firestore references
+////                        DocumentReference openOrderRef = db.collection("OpenOrders").document(captain_orders);
+//                        //setUpRecyclerView("evangefctesting");
+////                        CollectionReference sailorOrdersRef = db.collection("OpenOrders").document(captain_orders).collection("SailorOrders");
+//
+//                        // Inflate the fragment layout
+//                        inflateLayout(captain_orders);
+//
+//
+//                    } else {
+//                        Log.d("success", "No such document");
+//                    }
+//                } else {
+//                    Log.d("fail", "get failed with ", task.getException());
+//                }
 //            }
 //        });
 
@@ -79,9 +101,9 @@ public class OrderingPortalActivity extends AppCompatActivity {
         //button to complete your order
         //clicking of button does 2 things
         //1) send data of order to the firestore
-        //2) switch to next activity (being back to mainactivity?)
-
-        completeorderButton = findViewById(R.id.completeorderbutton);
+        //2) switch to next activity (being back to mainactivity)
+        radioFoodGroup = (RadioGroup) findViewById(R.id.radioFood);
+        completeorderButton = (Button) findViewById(R.id.completeorderbutton);
         completeorderButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -90,10 +112,30 @@ public class OrderingPortalActivity extends AppCompatActivity {
                 //get selected radio button from radioGroup
                 //find the radio button by returned id
 
-//                int selectedId = radioFoodGroup.getCheckedRadioButtonId();
-//                radioFoodButton = (RadioButton) findViewById(selectedId);
-//
-//                String food = (String) radioFoodButton.getText();   //obtained meal_label!!
+                int selectedId = radioFoodGroup.getCheckedRadioButtonId();
+                String meal_price="0";
+                switch (selectedId) {
+                    case 0:
+                        meal_price = "6.0";
+                        break;
+                    case 1:
+                        meal_price = "6.5";
+                        break;
+                    case 2:
+                        meal_price = "7.0";
+                        break;
+                    case 3:
+                        meal_price = "7.5";
+                        break;
+                    case 4:
+                        meal_price = "8.0";
+                        break;
+                }
+
+                radioFoodButton = (RadioButton) findViewById(selectedId);
+
+                String food = (String) radioFoodButton.getText();   //obtained meal_label!!
+                Log.d("evange", "returned meal_label: "+food);
 
 
 
@@ -112,10 +154,10 @@ public class OrderingPortalActivity extends AppCompatActivity {
 //                Toast.makeText(OrderingPortalActivity.this, "Write Attempt", Toast.LENGTH_SHORT).show();
 
                 Map<String, Object> order = new HashMap<>();
-                order.put("meal_cost", "Los Angeles");
-                order.put("meal_label", "Los Angeles");
-                order.put("sailor_name", "Los Angeles");
-                order.put("total_cost", "Los Angeles");
+                order.put("meal_cost", meal_price);
+                order.put("meal_label", food);
+                order.put("sailor_name", sailor_name);
+                order.put("total_cost", "7.5");
 
                 mySailorOrderRef.set(order)
                         .addOnSuccessListener(new OnSuccessListener<Void>() {
@@ -131,24 +173,7 @@ public class OrderingPortalActivity extends AppCompatActivity {
                             }
                         });
 
-
-
-
-//                db.collection("OpenOrder")
-//                        .get()
-//                        .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-//                            @Override
-//                            public void onComplete(@NonNull Task<QuerySnapshot> task) {
-//                                if (task.isSuccessful()) {
-//                                    for (QueryDocumentSnapshot document : task.getResult()) {
-//                                        Log.d("FIRESTORE", document.getId() + " => " + document.getData());
-//                                        Toast.makeText(OrderingPortalActivity.this, document.getData().toString(), Toast.LENGTH_SHORT).show();
-//                                    }
-//                                } else {
-//                                    Log.d("FIRESTORE", "Error getting documents: ", task.getException());
-//                                }
-//                            }
-//                        });
+                userRef.update("sailor_orders", FieldValue.arrayUnion(orderIdString));
 
 
                 //get intent to switch to next activity
