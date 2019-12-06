@@ -24,6 +24,22 @@
             android:textColor="#18626A"
             android:textSize="50dp" />
 
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            app:cardCornerRadius="15dp"
+            app:cardBackgroundColor="@color/tealTertiary"
+            app:cardElevation="5dp">
+            <Button
+                android:id="@+id/create_new_order_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Create a new order"
+                android:textColor="@color/textGreySecondary"
+                android:background="@android:color/transparent"/>
+        </androidx.cardview.widget.CardView>
+
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/my_orders_recyclerview_list"
