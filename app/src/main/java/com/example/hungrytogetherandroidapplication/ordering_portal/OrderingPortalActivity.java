@@ -50,7 +50,7 @@ public class OrderingPortalActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ordering_portal);
 
-<<<<<<< Updated upstream
+
         // Retrieve the OpenOrder doc id that I'm writing into
         Intent fromOpenOrdersIntent=getIntent();
         String orderIdString= fromOpenOrdersIntent.getStringExtra("order_id");
@@ -61,10 +61,7 @@ public class OrderingPortalActivity extends AppCompatActivity {
         // Obtain mySailorOrderRef, the docref to where I'm supposed to write to (save my new sailor order here)
         final DocumentReference mySailorOrderRef = db.collection("OpenOrders").document(orderIdString).collection("SailorOrders").document(fbUid);
 
-=======
-        Intent fromOpenOrdersIntent=getIntent();
-        String orderIdString= fromOpenOrdersIntent.getStringExtra("order_id");
->>>>>>> Stashed changes
+
 
         // this is your activity.
         // the layout is activity_ordering_portal
@@ -92,7 +89,6 @@ public class OrderingPortalActivity extends AppCompatActivity {
 
 
                 //sending up to firebase
-<<<<<<< Updated upstream
 //                final String openorderid = "pdQwKDYLtmCoO1PK54MF";// open order id currently hardcoded for testing
 //                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 //                final String userId=user.getUid();
@@ -124,19 +120,7 @@ public class OrderingPortalActivity extends AppCompatActivity {
                             public void onFailure(@NonNull Exception e) {
                                 Log.w("evange", "Error writing document", e);
                             }
-=======
-                final String openorderid = orderIdString;// open order id currently hardcoded for testing
-                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-                final String userId=user.getUid();
 
-                MyOrder my_enrolled_order = new MyOrder("10.50", food, userId , "10.50");
-                db.collection("OpenOrders/"+orderIdString+"/SailorOrders/"+userId)
-                        .document()
-                        .set(my_enrolled_order)
-                        .addOnSuccessListener(new OnSuccessListener<Void>() {
-                            @Override
-                            public void onSuccess(Void aVoid) { Log.d("THURSDAY", "UserBase/" + openorderid + "/OpenOrderCol/" + "hwllo"); }
->>>>>>> Stashed changes
                         });
 //
 //                Toast.makeText(OrderingPortalActivity.this, "Write Attempt", Toast.LENGTH_SHORT).show();
