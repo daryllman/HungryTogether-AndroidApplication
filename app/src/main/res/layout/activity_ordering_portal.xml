@@ -85,7 +85,7 @@
 
         <ImageView
             android:id="@+id/pic4"
-            android:src="@drawable/doublemcspicy"
+            android:src="@drawable/mcchicken"
             android:contentDescription="@null"
             android:layout_width="200dp"
             android:layout_height="100dp"
@@ -103,7 +103,7 @@
 
         <ImageView
             android:id="@+id/pic5"
-            android:src="@drawable/filetofish"
+            android:src="@drawable/mcchicken"
             android:contentDescription="@null"
             android:layout_width="200dp"
             android:layout_height="100dp"
